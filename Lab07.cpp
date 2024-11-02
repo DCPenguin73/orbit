@@ -19,6 +19,7 @@
 #include <iostream>
 #include <cmath>
 #include <math.h>
+#include <iomanip>
 #define _USE_MATH_DEFINES
 using namespace std;
 
@@ -127,22 +128,27 @@ void callBack(const Interface* pUI, void* p)
    //
 
    // equations of motion
-   const double timeDilation = 24 * 60;
-   const double timePerFrame = 48; // timeDilation / 30; // =48
-   const double secondsDay = 86400;
-   const double frameRate = 30;
+   const double timeDilation = 24.0 * 60.0;
+   const double timePerFrame = 48.0; // timeDilation / 30; // =48
+   const double secondsDay = 86400.0;
+   const double frameRate = 30.0;
    double earthRotation = (-((2 * PI) / frameRate) * (timeDilation / secondsDay));
-   const double earthRadius = 6378000;
+   const double earthRadius = 6378000.0;
    double x0 = pDemo->ptGPS.getMetersX();
    double y0 = pDemo->ptGPS.getMetersY();
    const double height = (std::sqrt((x0 * x0) + (y0 * y0))) - earthRadius; //35786000.000000000;
-   const double gravSea = - 9.80665;
+   //assert (35785000 < height && height < 35787000);
+   const double gravSea =  9.80665;
    double gravity = gravSea * ((earthRadius / (earthRadius + height)) * (earthRadius / (earthRadius + height)));
    double ddx0 = pDemo->ptGPS.getAccelerationX();
    double ddy0 = pDemo->ptGPS.getAccelerationY();
    double dirGravPull = (std::atan2((0 - y0), (0 - x0)));
-   double ddx = ((gravity + ddx0) * std::sin(dirGravPull));
-   double ddy = ((gravity + ddy0) * std::cos(dirGravPull));
+   //cout << fixed << std::setprecision(15) << endl;
+   //cout << "dirGravPull: " << dirGravPull << endl;
+   double ddx = ((gravity ) * std::cos(dirGravPull));
+   double ddy = ((gravity ) * std::sin(dirGravPull));
+   ddx = ddx ;
+   ddy = ddy ;
    pDemo->ptGPS.setAccelerationX(ddx);
    pDemo->ptGPS.setAccelerationY(ddy);
    double dx0 = pDemo->ptGPS.getVelocityX();
@@ -150,6 +156,7 @@ void callBack(const Interface* pUI, void* p)
    double dx = dx0 + (ddx * timePerFrame);
    double dy = dy0 + (ddy * timePerFrame);
    double velocity = std::sqrt((dx * dx) + (dy * dy)); // updated velocity should == -3100
+   //assert(velocity == -3100);
    pDemo->ptGPS.setVelocityX(dx);
    pDemo->ptGPS.setVelocityY(dy);
 
