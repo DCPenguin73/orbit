@@ -35,25 +35,36 @@ public:
    Demo(Position ptUpperRight) :
       ptUpperRight(ptUpperRight)
    {
-      ptHubble.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
-      ptHubble.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
+      ptHubble.setMeters(0.0, -42164000.0);
+      ptHubble.setVelocity(3100.0, 0.0);
 
-      ptSputnik.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
-      ptSputnik.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
+      ptSputnik.setMeters(-36515095.13 ,21082000.0 );
+      ptSputnik.setVelocity(2050.0, 2684.68);
 
-      ptStarlink.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
-      ptStarlink.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
+      ptStarlink.setMeters(0.0, -13020000.0);
+      ptStarlink.setVelocity(5800.0, 0.0);
 
-      ptCrewDragon.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
-      ptCrewDragon.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
+      ptCrewDragon.setMeters(0.0, 8000000.0);
+      ptCrewDragon.setVelocity(-7900.0, 0.0);
 
       ptShip.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
       ptShip.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
 
       //ptGPS.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
       //ptGPS.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
-      ptGPS.setMeters(0.0, 42164000.0);
-	  ptGPS.setVelocity(-3100.0, 0.0);
+      ptGPS.setMeters(0.0, 26560000.0);
+	  ptGPS.setVelocity(-3880.0, 0.0);
+	  ptGPS1.setMeters(23001634.72, 13280000.0);
+	  ptGPS1.setVelocity(-1940.00, 3360.18);
+	  ptGPS2.setMeters(23001634.72, -13280000.0);
+	  ptGPS2.setVelocity(1940.00, 3360.18);
+	  ptGPS3.setMeters(-23001634.72, 13280000.0);
+	  ptGPS3.setVelocity(-1940.00, -3360.18);
+	  ptGPS4.setMeters(-23001634.72, -13280000.0);
+	  ptGPS4.setVelocity(1940.00, -3360.18);
+	  ptGPS5.setMeters(0.0, -26560000.0);
+	  ptGPS5.setVelocity(3880.0, 0.0);
+
 
       for (int i = 0; i < 400; i++)
       {
@@ -79,6 +90,11 @@ public:
    Position ptStarlink;
    Position ptCrewDragon;
    Position ptShip;
+   Position ptGPS1;
+   Position ptGPS2;
+   Position ptGPS3;
+   Position ptGPS4;
+   Position ptGPS5;
    Position ptGPS;
    Position ptUpperRight;
    Position ptStars[400];
@@ -93,6 +109,7 @@ public:
    double angleEarth;
 
    int count = 0;
+   char phase = 'a' + rand();
 };
 
 /*************************************
@@ -140,8 +157,8 @@ void callBack(const Interface* pUI, void* p)
    //assert (35785000 < height && height < 35787000);
    const double gravSea =  9.80665;
    double gravity = gravSea * ((earthRadius / (earthRadius + height)) * (earthRadius / (earthRadius + height)));
-   double ddx0 = pDemo->ptGPS.getAccelerationX();
-   double ddy0 = pDemo->ptGPS.getAccelerationY();
+   //double ddx0 = pDemo->ptGPS.getAccelerationX();
+   //double ddy0 = pDemo->ptGPS.getAccelerationY();
    double dirGravPull = (std::atan2((0 - y0), (0 - x0)));
    //cout << fixed << std::setprecision(15) << endl;
    //cout << "dirGravPull: " << dirGravPull << endl;
@@ -180,7 +197,8 @@ void callBack(const Interface* pUI, void* p)
 
    // rotate the earth, ship, and stars
    pDemo->angleEarth += earthRotation; 
-   pDemo->angleShip += earthRotation;
+   pDemo->angleShip += (1.5 * earthRotation);
+   pDemo->phase = pDemo->phase + 1;
    pDemo->phaseStar++;
    pDemo->phaseStar2++;
    pDemo->phaseStar3++;
@@ -196,12 +214,17 @@ void callBack(const Interface* pUI, void* p)
    ogstream gout(pt);
 
    // draw satellites
-   //gout.drawCrewDragon(pDemo->ptCrewDragon, pDemo->angleShip);
-   //gout.drawHubble    (pDemo->ptHubble,     pDemo->angleShip);
-   //gout.drawSputnik   (pDemo->ptSputnik,    pDemo->angleShip);
-   //gout.drawStarlink  (pDemo->ptStarlink,   pDemo->angleShip);
+   gout.drawCrewDragon(pDemo->ptCrewDragon, pDemo->angleShip);
+   gout.drawHubble    (pDemo->ptHubble,     pDemo->angleShip);
+   gout.drawSputnik   (pDemo->ptSputnik,    pDemo->angleShip);
+   gout.drawStarlink  (pDemo->ptStarlink,   pDemo->angleShip);
    //gout.drawShip      (pDemo->ptShip,       pDemo->angleShip, pUI->isSpace());
    gout.drawGPS       (pDemo->ptGPS,        pDemo->angleShip);
+   gout.drawGPS(pDemo->ptGPS1, pDemo->angleShip);
+   gout.drawGPS(pDemo->ptGPS2, pDemo->angleShip);
+   gout.drawGPS(pDemo->ptGPS3, pDemo->angleShip);
+   gout.drawGPS(pDemo->ptGPS4, pDemo->angleShip);
+   gout.drawGPS(pDemo->ptGPS5, pDemo->angleShip);
 
    // draw parts
    //pt.setPixelsX(pDemo->ptCrewDragon.getPixelsX() + 20);
@@ -228,7 +251,9 @@ void callBack(const Interface* pUI, void* p)
    // draw stars
    for (int i = 0; i < 400; i++)
    {
-       if (i % 5 == 0)
+       gout.drawStar(pDemo->ptStars[i], (i * pDemo->phase));
+   
+       /*if (i % 5 == 0)
        {
            gout.drawStar(pDemo->ptStars[i], pDemo->phaseStar5);
        }
@@ -247,7 +272,7 @@ void callBack(const Interface* pUI, void* p)
 	   else
 	   {
 		   gout.drawStar(pDemo->ptStars[i], pDemo->phaseStar);
-	   }
+	   }*/
        
    }
    ;
