@@ -25,10 +25,12 @@ public:
 	friend TestVelocity;
 
 	// constructors
-	Velocity() : dx(0.0), dy(0.0) {}
-	Velocity(double dx, double dy) { this->dx = dx; this->dy = dy; };
-	Velocity(const Velocity& pt) : dx(pt.dx), dy(pt.dy) {}
+	Velocity() : dx(0.0), dy(0.0), ddx(0.0), ddy(0.0) {}
+	//Velocity(double dx, double dy, double ddx, double ddy) : dx(0.0), dy(0.0), ddx(0.0), ddy(0.0) { setVelocityX(dx); setVelocityY(dy); }
+	Velocity(double dx, double dy, double ddx, double ddy) : dx(0.0), dy(0.0), ddx(0.0), ddy(0.0) { setVelocityX(dx); setVelocityY(dy); setAccelerationX(ddx); setAccelerationY(ddy); }
+	Velocity(const Velocity& pt) : dx(pt.dx), dy(pt.dy), ddx(pt.ddx), ddy(pt.ddy) {}
 	Velocity& operator = (const Velocity& pt);
+	Velocity operator + (const Velocity& pt) const;
 
 	// getters
 	double getVelocityX()     const { return dx; }

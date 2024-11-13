@@ -25,6 +25,7 @@ using namespace std;
 
 const double PI = 3.14159265358979323846;
 
+
 /*************************************************************************
  * Demo
  * Test structure to capture the LM that will move around the screen
@@ -36,16 +37,16 @@ public:
       ptUpperRight(ptUpperRight)
    {
       ptHubble.setMeters(0.0, -42164000.0);
-      ptHubble.setVelocity(3100.0, 0.0);
+      //ptHubble.setVelocity(3100.0, 0.0);
 
       ptSputnik.setMeters(-36515095.13 ,21082000.0 );
-      ptSputnik.setVelocity(2050.0, 2684.68);
+      //ptSputnik.setVelocity(2050.0, 2684.68);
 
       ptStarlink.setMeters(0.0, -13020000.0);
-      ptStarlink.setVelocity(5800.0, 0.0);
+      //ptStarlink.setVelocity(5800.0, 0.0);
 
       ptCrewDragon.setMeters(0.0, 8000000.0);
-      ptCrewDragon.setVelocity(-7900.0, 0.0);
+      //ptCrewDragon.setVelocity(-7900.0, 0.0);
 
       ptShip.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
       ptShip.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
@@ -53,17 +54,17 @@ public:
       //ptGPS.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
       //ptGPS.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
       ptGPS.setMeters(0.0, 26560000.0);
-	  ptGPS.setVelocity(-3880.0, 0.0);
+	  //ptGPS.setVelocity(-3880.0, 0.0);
 	  ptGPS1.setMeters(23001634.72, 13280000.0);
-	  ptGPS1.setVelocity(-1940.00, 3360.18);
+	  //ptGPS1.setVelocity(-1940.00, 3360.18);
 	  ptGPS2.setMeters(23001634.72, -13280000.0);
-	  ptGPS2.setVelocity(1940.00, 3360.18);
+	  //ptGPS2.setVelocity(1940.00, 3360.18);
 	  ptGPS3.setMeters(-23001634.72, 13280000.0);
-	  ptGPS3.setVelocity(-1940.00, -3360.18);
+	  //ptGPS3.setVelocity(-1940.00, -3360.18);
 	  ptGPS4.setMeters(-23001634.72, -13280000.0);
-	  ptGPS4.setVelocity(1940.00, -3360.18);
+	  //ptGPS4.setVelocity(1940.00, -3360.18);
 	  ptGPS5.setMeters(0.0, -26560000.0);
-	  ptGPS5.setVelocity(3880.0, 0.0);
+	  //ptGPS5.setVelocity(3880.0, 0.0);
 
 
       for (int i = 0; i < 400; i++)
