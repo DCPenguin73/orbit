@@ -164,7 +164,7 @@
     <ClInclude Include="test.h" />
     <ClInclude Include="testEarth.h" />
     <ClInclude Include="testPosition.h" />
-    <ClInclude Include="TestStar.h" />
+    <ClInclude Include="testStar.h" />
     <ClInclude Include="testVelocity.h" />
     <ClInclude Include="uiDraw.h" />
     <ClInclude Include="uiInteract.h" />

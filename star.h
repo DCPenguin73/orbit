@@ -40,7 +40,7 @@ public:
 	void setPhase(char phase) { this->phase = phase; }
 
 	// other functions
-	void draw(ogstream gout) { gout.drawStar(position, phase); }
+	void draw(ogstream& gout) { gout.drawStar(position, phase); }
 	void advance() { phase++; }
 	
 

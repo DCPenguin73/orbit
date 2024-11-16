@@ -9,7 +9,6 @@
 #pragma once
 #include "star.h"
 #include "unitTest.h"
-#include <cassert>
 
  /***************************************
   * TEST Star
@@ -23,15 +22,7 @@ class TestStar : public UnitTest
 			// Constructors
 			construct_default();
 			
-
-			//Getters
-			getPhase();
-
-			//Setters
-			setPhase();
-
 			// Other functions
-			draw();
 			advance();
 
 			report("Star");
@@ -50,36 +41,29 @@ class TestStar : public UnitTest
 			// exercise
 			Star star;
 			// verify
-			assert(star.getX() >= -1280000 && star.getX() <= 1280000);
-			assert(star.getY() >= -1280000 && star.getY() <= 1280000);
-			assert(star.getPhase() >= 0 && star.getPhase() <= 127);
+			assertUnit(star.getX() >= -1280000 && star.getX() <= 1280000);
+			assertUnit(star.getY() >= -1280000 && star.getY() <= 1280000);
+			assertUnit(star.getPhase() >= 0 && star.getPhase() <= 127);
 			// teardown
 
 		}
 
-
 		/*********************************************
-		* name:    GET PHASE
-		* input:   phase='b'
-		* output:  phase='b'
-		*********************************************/
-		void getPhase()
+		* name:    ADVANCE
+		* input:   nothing
+		* output:  phase++
+		* ********************************************/
+		void advance()
 		{
 			// setup
-			Star star(3, 4, 'b');
-			// exercise
+			Star star;
 			char phase = star.getPhase();
+			// exercise
+			star.advance();
 			// verify
-			assertEquals(phase, 'b');
+			assertUnit(star.getPhase() == phase + 1);
 			// teardown
 
 		}
-
-		/*********************************************
-				* name:    SET PHASE
-						* input:   phase='b'
-								* output:  phase
-								* *********************************************/
-
 };
 

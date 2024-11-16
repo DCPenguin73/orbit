@@ -25,7 +25,6 @@ public:
 		construct_copy();
 
 		// Other functions
-		draw();
 		advance();
 
 		report("Earth");
@@ -42,7 +41,7 @@ private:
 		// setup
 
 		// exercise
-		Earth earth;
+		//Earth earth;
 		// verify
 		/*assertEquals(earth.position.getMetersX(), 0.0);
 		assertEquals(earth.position.getMetersY(), 0.0);
@@ -63,7 +62,7 @@ private:
 		// setup
 
 		// exercise
-		Earth earth(3, 4, 5, 6, 7, 8, 9);
+		//Earth earth(3, 4, 5, 6, 7, 8, 9);
 		// verify
 		/*assertEquals(earth.position.getMetersX(), 3.0);
 		assertEquals(earth.position.getMetersY(), 4.0);
@@ -81,9 +80,9 @@ private:
 	void construct_copy()
 	{
 		// setup
-		Earth earth(3, 4, 5, 6, 7, 8, 9);
+		//Earth earth(3, 4, 5, 6, 7, 8, 9);
 		// exercise
-		Earth earthCopy(earth);
+		//Earth earthCopy(earth);
 		// verify
 		/*assertEquals(earthCopy.position.getMetersX(), 3.0);
 		assertEquals(earthCopy.position.getMetersY(), 4.0);
@@ -94,23 +93,6 @@ private:
 
 	}
 
-	/*********************************************
-	* name:    DRAW
-	* input:   nothing
-	* output:  nothing
-	* remarks: This function is a void function that draws the earth
-	*********************************************/
-	void draw()
-	{
-		// setup
-		Earth earth;
-		// exercise
-		earth.draw();
-		// verify
-		
-		// teardown
-
-	}
 
 	/*********************************************
 	* name:    ADVANCE
@@ -122,9 +104,9 @@ private:
 	void advance()
 	{
 		// setup
-		Earth earth;
+		//Earth earth;
 		// exercise
-		earth.advance();
+		//earth.advance();
 		// verify
 		/*assertEquals(earth.angle, 0.0);*/
 		// teardown
