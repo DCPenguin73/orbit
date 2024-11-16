@@ -10,6 +10,8 @@
 
 #pragma once
 
+
+
 enum ObjectType 
 { 
 	HUBBLE, GPS, STARLINK, SPUTNIK, CREWDRAGON, SHIP, PROJECTILE, EARTH, FRAGMENT, 

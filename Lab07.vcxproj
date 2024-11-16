@@ -146,9 +146,6 @@
     <ClCompile Include="position.cpp" />
     <ClCompile Include="sim.cpp" />
     <ClCompile Include="test.cpp" />
-    <ClCompile Include="testEarth.cpp" />
-    <ClCompile Include="TestStar.cpp" />
-    <ClCompile Include="testVelocity.cpp" />
     <ClCompile Include="uiDraw.cpp" />
     <ClCompile Include="uiInteract.cpp" />
   </ItemGroup>
@@ -163,6 +160,7 @@
     <ClInclude Include="star.h" />
     <ClInclude Include="test.h" />
     <ClInclude Include="testEarth.h" />
+    <ClInclude Include="testGps.h" />
     <ClInclude Include="testPosition.h" />
     <ClInclude Include="testStar.h" />
     <ClInclude Include="testVelocity.h" />

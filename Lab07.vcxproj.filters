@@ -39,16 +39,7 @@
     <ClCompile Include="sim.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testEarth.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="gps.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TestStar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="testVelocity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -102,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="testVelocity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="testGps.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

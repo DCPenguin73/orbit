@@ -38,7 +38,6 @@ public:
 	// constructors
 	Earth() : Object(), angle(0.0), radius(6378000.0), rotation(rotation) {}
 	Earth(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); this->angle = angle; this->radius = radius; this->rotation = rotation; }
-	Earth(const Earth& pt) : Object(pt), angle(pt.angle), radius(pt.radius), rotation(pt.rotation) {}
 	~Earth() {}
 
 
@@ -60,7 +59,7 @@ private:
 	Position position;
 	Velocity velocity;
 	double angle = 0.0;
-	const double radius = 6378000.0;
-	const double rotation = (-((2 * PI) / frameRate) * (timeDilation / secondsDay));;
+	double radius = 6378000.0;
+	double rotation = (-((2 * PI) / frameRate) * (timeDilation / secondsDay));;
 };
 
