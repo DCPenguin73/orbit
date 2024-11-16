@@ -15,22 +15,22 @@
 #include "star.h"
 #include <vector>
 
-//class TestSim;
-class Object;
+class TestSim;
+class object;
 class Star;
 
 /*********************************************
  * Sim
  * A single object on the field in Meters
  *********************************************/
-class sim
+class Sim
 {
 	//friend TestSim;
 
 public:
 	// constructors
-	sim() {}
-	~sim() {}
+	Sim(Position ptUpperRight) { this->upperRight = ptUpperRight; }
+	~Sim() {}
 
 	// getters
 
@@ -42,7 +42,7 @@ public:
 
 	// other functions
 	void reset();
-	void draw();
+	void draw(ogstream& gout);
 	void advance();
 
 	std::list<Object*> objectColision();
@@ -53,5 +53,5 @@ private:
 	std::list<Object*> objects;
 
 	Star stars[400];
+	Position upperRight;
 };
-

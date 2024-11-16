@@ -17,12 +17,14 @@
 #include <cassert>
 #include "uiDraw.h"
 #include <cmath>
+#include "earth.h"
 
+class Object;
  /******************************************
   * SIM : RESETs
   * Reset the simulation
   *****************************************/
-void sim::reset()
+void Sim::reset()
 {
 	objects.clear();
 	const double timeDilation = 24.0 * 60.0;
@@ -30,31 +32,36 @@ void sim::reset()
 	const double secondsDay = 86400.0;
 	const double frameRate = 30.0;
 	double earthRotation = (-((2 * M_PI) / frameRate) * (timeDilation / secondsDay));
-	Gps gps(0.0, 2656000.0, -3880.0, 0.0, 1.5, 10.0, (1.5 * earthRotation));
+	Gps* gps = new Gps(0.0, 2656000.0, -3880.0, 0.0, 1.5, 10.0, (1.5 * earthRotation));
+	Earth* earth = new Earth(0.0,0.0,0.0,0.0,0.0,6378000.0,earthRotation);
+
+	objects.push_back(gps);
+	objects.push_back(earth);
+
 }
 
 /******************************************
  * SIM : DRAW
  * Draw everything on the screen
  *****************************************/
-void sim::draw()
+void Sim::draw(ogstream& gout)
 {
-	/*for (std::list<Object>::iterator it = object.begin(); it != object.end(); ++it)
-	{
-		it->draw();
-	}*/
+	for (Object* obj : objects) {
+
+		obj->draw(gout);
+	}
 }
 
 /******************************************
  * SIM : ADVANCE
  * Advance everything on the screen
  *****************************************/
-void sim::advance()
+void Sim::advance()
 {
-	/*for (std::list<Object>::iterator it = object.begin(); it != object.end(); ++it)
-	{
-		it->advance();
-	}*/
+	for (Object* obj : objects) {
+
+		obj->advance();
+	}
 }
 
 /******************************************
