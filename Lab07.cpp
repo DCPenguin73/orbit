@@ -202,9 +202,9 @@ void callBack(const Interface* pUI, void* p)
 
 
    // rotate the earth, ship, and stars
-   /*pDemo->angleEarth += earthRotation; 
-   pDemo->angleShip += (1.5 * earthRotation);
-   pDemo->phase = pDemo->phase + 1;
+   //pDemo->angleEarth += earthRotation; 
+   //pDemo->angleShip += (1.5 * earthRotation);
+  /* pDemo->phase = pDemo->phase + 1;
    pDemo->phaseStar++;
    pDemo->phaseStar2++;
    pDemo->phaseStar3++;
@@ -224,8 +224,8 @@ void callBack(const Interface* pUI, void* p)
    gout.drawHubble    (pDemo->ptHubble,     pDemo->angleShip);
    gout.drawSputnik   (pDemo->ptSputnik,    pDemo->angleShip);
    gout.drawStarlink  (pDemo->ptStarlink,   pDemo->angleShip);
-   //gout.drawShip      (pDemo->ptShip,       pDemo->angleShip, pUI->isSpace());
-   gout.drawGPS       (pDemo->ptGPS,        pDemo->angleShip);
+   gout.drawShip      (pDemo->ptShip,       pDemo->angleShip, pUI->isSpace());
+   gout.drawGPS(pDemo->ptGPS,  pDemo->angleShip);
    gout.drawGPS(pDemo->ptGPS1, pDemo->angleShip);
    gout.drawGPS(pDemo->ptGPS2, pDemo->angleShip);
    gout.drawGPS(pDemo->ptGPS3, pDemo->angleShip);
@@ -259,7 +259,7 @@ void callBack(const Interface* pUI, void* p)
    {
        gout.drawStar(pDemo->ptStars[i], (i * pDemo->phase));
    
-       /*if (i % 5 == 0)
+       if (i % 5 == 0)
        {
            gout.drawStar(pDemo->ptStars[i], pDemo->phaseStar5);
        }
@@ -278,7 +278,7 @@ void callBack(const Interface* pUI, void* p)
 	   else
 	   {
 		   gout.drawStar(pDemo->ptStars[i], pDemo->phaseStar);
-	   }*/
+	   }
        
    }
    ;

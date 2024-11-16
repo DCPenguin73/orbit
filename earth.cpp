@@ -11,15 +11,3 @@
 #include <cassert>
 
 
-
-
-/******************************************
- * EARTH : ADVANCE
- * Advance everything on the screen
- *****************************************/
-
-//void Earth::advance()
-//{
-//
-//}
-

@@ -49,12 +49,7 @@ public:
 	void setVelocityY(double dy) { velocity.setVelocityY(0.0); }
 
 	// other functions
-	void draw() 
-	{
-		ogstream earth;
-		earth.drawEarth(position, angle); 
-	}
-
+	void draw(ogstream gout) {gout.drawEarth(position, angle);}
 	void advance() { angle += rotation; }
 
 
