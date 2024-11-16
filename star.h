@@ -13,6 +13,7 @@
 #include "position.h"
 #include "uiDraw.h"
 
+
 class TestStar;
 class Position;
 class uiDraw;
@@ -27,7 +28,9 @@ class Star
 
 public:
 	// constructors
-	Star() : position(-128000 + rand() % (128000 - -128000 + 1), -128000 + rand() % (128000 - -128000 + 1)), phase('a' + rand()) {}
+	Star(double x, double y, char p) { this->position.setMetersX(x); this->position.setMetersY(y); this->setPhase(p); }
+
+	Star() : position(( - 128000 * 40) + rand() % ((128000 * 40) - ( - 128000 * 40) + 1), (-128000 * 40) + rand() % ((128000 * 40) - ( - 128000 * 40) + 1)), phase('a' + rand()) {}
 
 	// getters
 	double getX() const { return position.getMetersX(); }
@@ -37,11 +40,12 @@ public:
 	// setters
 	void setX(double x) { position.setMetersX(x); }
 	void setY(double y) { position.setMetersY(y); }
-	void setPhase(char phase) { this->phase = phase; }
+	void setPhase(char p) {this->phase = p; }
 
 	// other functions
 	void draw(ogstream& gout) { gout.drawStar(position, phase); }
-	void advance() { phase++; }
+
+	void advance() { this->setPhase(this->phase + 1);}
 	
 
 private:

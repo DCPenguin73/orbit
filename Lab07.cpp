@@ -226,8 +226,9 @@ void callBack(const Interface* pUI, void* p)
    Position pt;
    ogstream gout(pt);
 
-   psim->advance();
    psim->draw(gout);
+   psim->advance();
+
 
 
 

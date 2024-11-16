@@ -60,6 +60,6 @@ private:
 	Velocity velocity;
 	double angle = 0.0;
 	double radius = 6378000.0;
-	double rotation = (-((2 * PI) / frameRate) * (timeDilation / secondsDay));;
+	double rotation = (-((2 * PI) / frameRate) * (timeDilation / secondsDay));
 };
 
