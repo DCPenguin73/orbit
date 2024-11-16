@@ -44,11 +44,11 @@ public:
 	double getRotation() const { return rotation; }
 
 	// setters
-	void setX(double x) { position.setMetersX(x); }
-	void setY(double y) { position.setMetersY(y); }
+	void setX(double x) { this->position.setMetersX(x); }
+	void setY(double y) { this->position.setMetersY(y); }
 	void setVelocity(double dx, double dy) { velocity.setVelocityX(dx); velocity.setVelocityY(dy); }
-	void setVelocityX(double dx) { velocity.setVelocityX(dx); }
-	void setVelocityY(double dy) { velocity.setVelocityY(dy); }
+	void setVelocityX(double dx) { this->velocity.setVelocityX(dx); }
+	void setVelocityY(double dy) { this->velocity.setVelocityY(dy); }
 	void setAngle(double angle) { this->angle = angle; }
 	void setRadius(double radius) { this->radius = radius; }
 	void setRotation(double rotation) { this->rotation = rotation; }

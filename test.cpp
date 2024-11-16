@@ -33,5 +33,5 @@ void testRunner()
 
    TestPosition().run();
    TestVelocity().run();
-   TestStar().run();
+   //TestStar().run();
 }

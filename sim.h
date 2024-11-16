@@ -52,6 +52,6 @@ public:
 private:
 	std::list<Object*> objects;
 
-	Star stars[400];
+	std::list<Star> stars;
 	Position upperRight;
 };

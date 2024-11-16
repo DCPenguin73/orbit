@@ -60,7 +60,7 @@ private:
 	Position position;
 	Velocity velocity;
 	double angle = 0.0;
-	const double radius = 6378000.0;
-	const double rotation = (-((2 * PI) / frameRate) * (timeDilation / secondsDay));;
+	double radius = 6378000.0;
+	double rotation = (-((2 * PI) / frameRate) * (timeDilation / secondsDay));
 };
 

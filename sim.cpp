@@ -18,6 +18,7 @@
 #include "uiDraw.h"
 #include <cmath>
 #include "earth.h"
+#include <random>
 
 class Object;
  /******************************************
@@ -32,11 +33,29 @@ void Sim::reset()
 	const double secondsDay = 86400.0;
 	const double frameRate = 30.0;
 	double earthRotation = (-((2 * M_PI) / frameRate) * (timeDilation / secondsDay));
-	Gps* gps = new Gps(0.0, 2656000.0, -3880.0, 0.0, 1.5, 10.0, (1.5 * earthRotation));
+	Gps* gps = new Gps(0.0,26560000.0,-3880.0,0.0,1.5,10.0, (2* earthRotation));
+
 	Earth* earth = new Earth(0.0,0.0,0.0,0.0,0.0,6378000.0,earthRotation);
 
 	objects.push_back(gps);
 	objects.push_back(earth);
+
+	const double minRange = -1280000 * 50;
+	const double maxRange = 1280000 * 50;
+
+	for (int i = 0; i < 400; i++)
+	{
+		std::random_device rd;
+		std::mt19937 gen(rd());
+		std::uniform_int_distribution<int> dist(minRange, maxRange);
+		int randomNumberX = dist(gen);
+		int randomNumberY = dist(gen);
+		int randomPhase = (dist(gen)) % 256;
+		char p = char(randomPhase);
+
+		Star star(randomNumberX,randomNumberY,p);
+		this->stars.push_back(star);
+	}
 
 }
 
@@ -46,10 +65,15 @@ void Sim::reset()
  *****************************************/
 void Sim::draw(ogstream& gout)
 {
+	for (Star star : stars)
+	{
+		star.draw(gout);
+	}
 	for (Object* obj : objects) {
 
 		obj->draw(gout);
 	}
+
 }
 
 /******************************************
@@ -61,6 +85,10 @@ void Sim::advance()
 	for (Object* obj : objects) {
 
 		obj->advance();
+	}
+	for (Star& star : stars)
+	{
+		star.setPhase(star.getPhase() + 1);
 	}
 }
 
