@@ -17,7 +17,9 @@
  * EARTH : ADVANCE
  * Advance everything on the screen
  *****************************************/
+
 //void Earth::advance()
 //{
 //
 //}
+

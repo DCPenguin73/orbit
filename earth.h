@@ -54,7 +54,9 @@ public:
 		ogstream earth;
 		earth.drawEarth(position, angle); 
 	}
+
 	void advance() { angle += rotation; }
+
 
 private:
 	Position position;
