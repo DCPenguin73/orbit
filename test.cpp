@@ -11,6 +11,7 @@
 #include "testPosition.h"
 #include "testVelocity.h"
 #include "testStar.h"
+#include "testEarth.h"
 
 #ifdef _WIN32
 #include <windows.h>
@@ -33,5 +34,6 @@ void testRunner()
 
    TestPosition().run();
    TestVelocity().run();
-   //TestStar().run();
+   TestStar().run();
+   TestEarth().run();
 }
