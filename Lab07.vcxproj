@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="earth.cpp" />
+    <ClCompile Include="gps.cpp" />
     <ClCompile Include="Lab07.cpp" />
     <ClCompile Include="object.cpp" />
     <ClCompile Include="position.cpp" />
@@ -150,8 +151,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="earth.h" />
+    <ClInclude Include="gps.h" />
     <ClInclude Include="object.h" />
+    <ClInclude Include="objectType.h" />
     <ClInclude Include="position.h" />
+    <ClInclude Include="satellite.h" />
     <ClInclude Include="sim.h" />
     <ClInclude Include="star.h" />
     <ClInclude Include="test.h" />

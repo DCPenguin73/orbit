@@ -48,7 +48,7 @@ public:
 		ogstream earth;
 		earth.drawEarth(position, angle); 
 	}
-	void advance() {}
+	void advance();
 
 private:
 	Position position;

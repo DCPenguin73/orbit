@@ -19,8 +19,8 @@
  *****************************************/
 void earth::advance()
 {
-	for (std::list<Object>::iterator it = object.begin(); it != object.end(); ++it)
+	/*for (std::list<Object>::iterator it = object.begin(); it != object.end(); ++it)
 	{
 		it->advance();
-	}
+	}*/
 }
