@@ -23,16 +23,16 @@ class Velocity;
  * Earth
  * A single object on the field in Meters
  *********************************************/
-class earth : public object
+class Earth : public Object
 {
 	friend TestEarth;
 
 public:
 	// constructors
-	earth() : object(), angle(0.0), radius(0.0), rotation(0.0) {}
-	earth(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); this->angle = angle; this->radius = radius; this->rotation = rotation; }
-	earth(const earth& pt) : object(pt), angle(pt.angle), radius(pt.radius), rotation(pt.rotation) {}
-	~earth() {}
+	Earth() : Object(), angle(0.0), radius(6378000.0), rotation(rotation) {}
+	Earth(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); this->angle = angle; this->radius = radius; this->rotation = rotation; }
+	Earth(const Earth& pt) : Object(pt), angle(pt.angle), radius(pt.radius), rotation(pt.rotation) {}
+	~Earth() {}
 
 
 	// setters
@@ -43,12 +43,11 @@ public:
 	void setVelocityY(double dy) { velocity.setVelocityY(0.0); }
 
 	// other functions
-	void draw() 
+	void draw(ogstream& gout) 
 	{
-		ogstream earth;
-		earth.drawEarth(position, angle); 
+		gout.drawEarth(position, angle); 
 	}
-	void advance();
+	void advance() { angle += rotation; }
 
 private:
 	Position position;

@@ -16,21 +16,21 @@
 #include <vector>
 
 class TestSim;
-class Object;
+class object;
 class Star;
 
 /*********************************************
  * Sim
  * A single object on the field in Meters
  *********************************************/
-class sim
+class Sim
 {
 	friend TestSim;
 
 public:
 	// constructors
-	sim() {}
-	~sim() {}
+	Sim(Position ptUpperRight) { this->upperRight = ptUpperRight; }
+	~Sim() {}
 
 	// getters
 	std::list<Object*> getObjects() const { return objects; }
@@ -40,7 +40,7 @@ public:
 
 	// other functions
 	void reset();
-	void draw();
+	void draw(ogstream& gout);
 	void advance();
 	std::list<Object*> objectColision();
 	void colide(Object object1, Object object2);
@@ -49,5 +49,5 @@ public:
 private:
 	std::list<Object*> objects;
 	Star stars[400];
+	Position upperRight;
 };
-
