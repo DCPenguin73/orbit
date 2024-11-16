@@ -19,10 +19,17 @@ class TestEarth;
 class Position;
 class Velocity;
 
+const double timeDilation = 24.0 * 60.0;
+const double timePerFrame = 48.0; // timeDilation / 30; // =48
+const double secondsDay = 86400.0;
+const double frameRate = 30.0;
+const double PI = 3.14159265358979323846;
+
 /*********************************************
  * Earth
  * A single object on the field in Meters
  *********************************************/
+
 class Earth : public Object
 {
 	friend TestEarth;
@@ -52,8 +59,8 @@ public:
 private:
 	Position position;
 	Velocity velocity;
-	double angle;
-	double radius;
-	double rotation;
+	double angle = 0.0;
+	const double radius = 6378000.0;
+	const double rotation = (-((2 * PI) / frameRate) * (timeDilation / secondsDay));;
 };
 

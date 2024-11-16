@@ -153,6 +153,7 @@ void callBack(const Interface* pUI, void* p)
    //
 
    // equations of motion
+
    //const double timeDilation = 24.0 * 60.0;
    //const double timePerFrame = 48.0; // timeDilation / 30; // =48
    //const double secondsDay = 86400.0;
@@ -174,16 +175,20 @@ void callBack(const Interface* pUI, void* p)
    //double ddy = ((gravity ) * std::sin(dirGravPull));
    //ddx = ddx ;
    //ddy = ddy ;
+
    ////pDemo->ptGPS.setAccelerationX(ddx);
    ////pDemo->ptGPS.setAccelerationY(ddy);
    ////double dx0 = pDemo->ptGPS.getVelocityX();
    ////double dy0 = pDemo->ptGPS.getVelocityY();
+
    //double dx = dx0 + (ddx * timePerFrame);
    //double dy = dy0 + (ddy * timePerFrame);
    //double velocity = std::sqrt((dx * dx) + (dy * dy)); // updated velocity should == -3100
    ////assert(velocity == -3100);
+
    ////pDemo->ptGPS.setVelocityX(dx);/*
    ////pDemo->ptGPS.setVelocityY(dy);*/
+
 
    //double x = x0 + (dx * timePerFrame) + (0.5 * ddx * (timePerFrame * timePerFrame));
    //double y = y0 + (dy * timePerFrame) + (0.5 * ddy * (timePerFrame * timePerFrame));
@@ -204,9 +209,9 @@ void callBack(const Interface* pUI, void* p)
 
 
    // rotate the earth, ship, and stars
-   /*pDemo->angleEarth += earthRotation; 
-   pDemo->angleShip += (1.5 * earthRotation);
-   pDemo->phase = pDemo->phase + 1;
+   //pDemo->angleEarth += earthRotation; 
+   //pDemo->angleShip += (1.5 * earthRotation);
+  /* pDemo->phase = pDemo->phase + 1;
    pDemo->phaseStar++;
    pDemo->phaseStar2++;
    pDemo->phaseStar3++;
@@ -238,6 +243,7 @@ void callBack(const Interface* pUI, void* p)
    //gout.drawGPS(pDemo->ptGPS3, pDemo->angleShip);
    //gout.drawGPS(pDemo->ptGPS4, pDemo->angleShip);
    //gout.drawGPS(pDemo->ptGPS5, pDemo->angleShip);
+
 
    // draw parts
    //pt.setPixelsX(pDemo->ptCrewDragon.getPixelsX() + 20);

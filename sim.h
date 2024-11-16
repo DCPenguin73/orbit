@@ -25,7 +25,7 @@ class Star;
  *********************************************/
 class Sim
 {
-	friend TestSim;
+	//friend TestSim;
 
 public:
 	// constructors
@@ -33,21 +33,25 @@ public:
 	~Sim() {}
 
 	// getters
+
 	std::list<Object*> getObjects() const { return objects; }
 
 	// setters
 	void setObjects(std::list<Object*> object) { this->objects = object; }
 
+
 	// other functions
 	void reset();
 	void draw(ogstream& gout);
 	void advance();
+
 	std::list<Object*> objectColision();
 	void colide(Object object1, Object object2);
 	void addOdject(Object object);
 
 private:
 	std::list<Object*> objects;
+
 	Star stars[400];
 	Position upperRight;
 };
