@@ -14,7 +14,7 @@
 #include "object.h"
 #include "star.h"
 
-class TestSim;
+//class TestSim;
 class Object;
 class Star;
 
@@ -24,7 +24,7 @@ class Star;
  *********************************************/
 class sim
 {
-	friend TestSim;
+	//friend TestSim;
 
 public:
 	// constructors
@@ -32,21 +32,21 @@ public:
 	~sim() {}
 
 	// getters
-	std::list<Object> getObject() const { return object; }
+	//std::list<Object> getObject() const { return object; }
 
 	// setters
-	void setObject(std::list<Object> object) { this->object = object; }
+	//void setObject(std::list<Object> object) { this->object = object; }
 
 	// other functions
 	void reset();
 	void draw();
 	void advance();
-	std::list<Object> objectColision();
-	void colide(Object object1, Object object2);
-	void addOdject(Object object);
+	//std::list<Object> objectColision();
+	//void colide(Object object1, Object object2);
+	//void addOdject(Object object);
 
 private:
-	std::list<Object> object;
+	//std::list<Object> object;
 	Star stars[400];
 };
 

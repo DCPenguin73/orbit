@@ -25,7 +25,7 @@ class Star
 
 public:
 	// constructors
-	Star() : position(-128000.0 + rand() % (128000.0 - -128000.0 + 1), -128000.0 + rand() % (128000.0 - -128000.0 + 1)), phase('a' + rand()) {}
+	Star() : position(-128000 + rand() % (128000 - -128000 + 1), -128000 + rand() % (128000 - -128000 + 1)), phase('a' + rand()) {}
 	Star(double x, double y, char phase) { position.setMetersX(x); position.setMetersY(y); this->phase=phase; }
 	Star(const Star& pt) : position(pt.position), phase(pt.phase) {}	
 

@@ -17,10 +17,7 @@
  * EARTH : ADVANCE
  * Advance everything on the screen
  *****************************************/
-void earth::advance()
-{
-	for (std::list<Object>::iterator it = object.begin(); it != object.end(); ++it)
-	{
-		it->advance();
-	}
-}
+//void Earth::advance()
+//{
+//
+//}

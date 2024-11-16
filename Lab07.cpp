@@ -161,27 +161,27 @@ void callBack(const Interface* pUI, void* p)
    //double ddx0 = pDemo->ptGPS.getAccelerationX();
    //double ddy0 = pDemo->ptGPS.getAccelerationY();
    double dirGravPull = (std::atan2((0 - y0), (0 - x0)));
-   //cout << fixed << std::setprecision(15) << endl;
-   //cout << "dirGravPull: " << dirGravPull << endl;
-   double ddx = ((gravity ) * std::cos(dirGravPull));
-   double ddy = ((gravity ) * std::sin(dirGravPull));
-   ddx = ddx ;
-   ddy = ddy ;
-   pDemo->ptGPS.setAccelerationX(ddx);
-   pDemo->ptGPS.setAccelerationY(ddy);
-   double dx0 = pDemo->ptGPS.getVelocityX();
-   double dy0 = pDemo->ptGPS.getVelocityY();
-   double dx = dx0 + (ddx * timePerFrame);
-   double dy = dy0 + (ddy * timePerFrame);
-   double velocity = std::sqrt((dx * dx) + (dy * dy)); // updated velocity should == -3100
-   //assert(velocity == -3100);
-   pDemo->ptGPS.setVelocityX(dx);
-   pDemo->ptGPS.setVelocityY(dy);
+   ////cout << fixed << std::setprecision(15) << endl;
+   ////cout << "dirGravPull: " << dirGravPull << endl;
+   //double ddx = ((gravity ) * std::cos(dirGravPull));
+   //double ddy = ((gravity ) * std::sin(dirGravPull));
+   //ddx = ddx ;
+   //ddy = ddy ;
+   //pDemo->ptGPS.setAccelerationX(ddx);
+   //pDemo->ptGPS.setAccelerationY(ddy);
+   //double dx0 = pDemo->ptGPS.getVelocityX();
+   //double dy0 = pDemo->ptGPS.getVelocityY();
+   //double dx = dx0 + (ddx * timePerFrame);
+   //double dy = dy0 + (ddy * timePerFrame);
+   //double velocity = std::sqrt((dx * dx) + (dy * dy)); // updated velocity should == -3100
+   ////assert(velocity == -3100);
+   //pDemo->ptGPS.setVelocityX(dx);
+   //pDemo->ptGPS.setVelocityY(dy);
 
-   double x = x0 + (dx * timePerFrame) + (0.5 * ddx * (timePerFrame * timePerFrame));
-   double y = y0 + (dy * timePerFrame) + (0.5 * ddy * (timePerFrame * timePerFrame));
-   pDemo->ptGPS.setMetersX(x);
-   pDemo->ptGPS.setMetersY(y);
+   //double x = x0 + (dx * timePerFrame) + (0.5 * ddx * (timePerFrame * timePerFrame));
+   //double y = y0 + (dy * timePerFrame) + (0.5 * ddy * (timePerFrame * timePerFrame));
+   //pDemo->ptGPS.setMetersX(x);
+   //pDemo->ptGPS.setMetersY(y);
 
    //double id = 0; // initial distance
   
