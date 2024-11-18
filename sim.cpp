@@ -17,12 +17,15 @@
 #include <cassert>
 #include "uiDraw.h"
 #include <cmath>
+#include "earth.h"
+#include <random>
 
+class Object;
  /******************************************
   * SIM : RESETs
   * Reset the simulation
   *****************************************/
-void sim::reset()
+void Sim::reset()
 {
 	objects.clear();
 	const double timeDilation = 24.0 * 60.0;
@@ -30,31 +33,63 @@ void sim::reset()
 	const double secondsDay = 86400.0;
 	const double frameRate = 30.0;
 	double earthRotation = (-((2 * M_PI) / frameRate) * (timeDilation / secondsDay));
-	Gps gps(0.0, 2656000.0, -3880.0, 0.0, 1.5, 10.0, (1.5 * earthRotation));
+	Gps* gps = new Gps(0.0,26560000.0,-3880.0,0.0,1.5,10.0, (2* earthRotation));
+
+	Earth* earth = new Earth(0.0,0.0,0.0,0.0,0.0,6378000.0,earthRotation);
+
+	objects.push_back(gps);
+	objects.push_back(earth);
+
+	const double minRange = -1280000 * 50;
+	const double maxRange = 1280000 * 50;
+
+	for (int i = 0; i < 400; i++)
+	{
+		std::random_device rd;
+		std::mt19937 gen(rd());
+		std::uniform_int_distribution<int> dist(minRange, maxRange);
+		int randomNumberX = dist(gen);
+		int randomNumberY = dist(gen);
+		int randomPhase = (dist(gen)) % 256;
+		char p = char(randomPhase);
+
+		Star star(randomNumberX,randomNumberY,p);
+		this->stars.push_back(star);
+	}
+
 }
 
 /******************************************
  * SIM : DRAW
  * Draw everything on the screen
  *****************************************/
-void sim::draw()
+void Sim::draw(ogstream& gout)
 {
-	/*for (std::list<Object>::iterator it = object.begin(); it != object.end(); ++it)
+	for (Star star : stars)
 	{
-		it->draw();
-	}*/
+		star.draw(gout);
+	}
+	for (Object* obj : objects) {
+
+		obj->draw(gout);
+	}
+
 }
 
 /******************************************
  * SIM : ADVANCE
  * Advance everything on the screen
  *****************************************/
-void sim::advance()
+void Sim::advance()
 {
-	/*for (std::list<Object>::iterator it = object.begin(); it != object.end(); ++it)
+	for (Object* obj : objects) {
+
+		obj->advance();
+	}
+	for (Star& star : stars)
 	{
-		it->advance();
-	}*/
+		star.setPhase(star.getPhase() + 1);
+	}
 }
 
 /******************************************

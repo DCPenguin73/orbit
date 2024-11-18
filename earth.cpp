@@ -8,18 +8,5 @@
  ************************************************************************/
 #pragma once
 #include "earth.h"
+
 #include <cassert>
-
-
-
-
-/******************************************
- * EARTH : ADVANCE
- * Advance everything on the screen
- *****************************************/
-
-//void Earth::advance()
-//{
-//
-//}
-

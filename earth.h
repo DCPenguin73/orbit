@@ -29,17 +29,17 @@ const double PI = 3.14159265358979323846;
  * Earth
  * A single object on the field in Meters
  *********************************************/
-class Earth : public object
+
+class Earth : public Object
 {
 	friend TestEarth;
 
 public:
 	// constructors
-	Earth() : object(), angle(0.0), radius(6378000.0), rotation(rotation) {}
-	Earth(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); this->angle = angle; }
-	Earth(const Earth& pt) : object(pt), angle(pt.angle) {}
+	Earth() : Object(), angle(0.0), radius(6378000.0), rotation(rotation) {}
+	Earth(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); this->angle = angle; this->radius = radius; this->rotation = rotation; }
 	~Earth() {}
-	
+
 
 	// setters
 	void setX(double x) { position.setMetersX(0.0); }
@@ -49,20 +49,17 @@ public:
 	void setVelocityY(double dy) { velocity.setVelocityY(0.0); }
 
 	// other functions
-	void draw() 
+	void draw(ogstream& gout) 
 	{
-		ogstream earth;
-		earth.drawEarth(position, angle); 
+		gout.drawEarth(position, angle); 
 	}
-
 	void advance() { angle += rotation; }
-
 
 private:
 	Position position;
 	Velocity velocity;
 	double angle = 0.0;
-	const double radius = 6378000.0;
-	const double rotation = (-((2 * PI) / frameRate) * (timeDilation / secondsDay));;
+	double radius = 6378000.0;
+	double rotation = (-((2 * PI) / frameRate) * (timeDilation / secondsDay));
 };
 

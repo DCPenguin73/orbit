@@ -20,98 +20,99 @@
 #include <cmath>
 #include <math.h>
 #include <iomanip>
+#include "sim.h"
 #define _USE_MATH_DEFINES
 using namespace std;
 
 const double PI = 3.14159265358979323846;
 
 
-/*************************************************************************
- * Demo
- * Test structure to capture the LM that will move around the screen
- *************************************************************************/
-class Demo
-{
-public:
-   Demo(Position ptUpperRight) :
-      ptUpperRight(ptUpperRight)
-   {
-      ptHubble.setMeters(0.0, -42164000.0);
-      //ptHubble.setVelocity(3100.0, 0.0);
-
-      ptSputnik.setMeters(-36515095.13 ,21082000.0 );
-      //ptSputnik.setVelocity(2050.0, 2684.68);
-
-      ptStarlink.setMeters(0.0, -13020000.0);
-      //ptStarlink.setVelocity(5800.0, 0.0);
-
-      ptCrewDragon.setMeters(0.0, 8000000.0);
-      //ptCrewDragon.setVelocity(-7900.0, 0.0);
-
-      ptShip.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
-      ptShip.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
-
-      //ptGPS.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
-      //ptGPS.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
-      ptGPS.setMeters(0.0, 26560000.0);
-	  //ptGPS.setVelocity(-3880.0, 0.0);
-	  ptGPS1.setMeters(23001634.72, 13280000.0);
-	  //ptGPS1.setVelocity(-1940.00, 3360.18);
-	  ptGPS2.setMeters(23001634.72, -13280000.0);
-	  //ptGPS2.setVelocity(1940.00, 3360.18);
-	  ptGPS3.setMeters(-23001634.72, 13280000.0);
-	  //ptGPS3.setVelocity(-1940.00, -3360.18);
-	  ptGPS4.setMeters(-23001634.72, -13280000.0);
-	  //ptGPS4.setVelocity(1940.00, -3360.18);
-	  ptGPS5.setMeters(0.0, -26560000.0);
-	  //ptGPS5.setVelocity(3880.0, 0.0);
-
-
-      for (int i = 0; i < 400; i++)
-      {
-		  ptStars[i].setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));  
-		  ptStars[i].setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
-		 
-
-      }
-      //ptStar.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
-      //ptStar.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
-
-      angleShip = 1.5;
-      angleEarth = 0.0;
-	  phaseStar = 0;
-	  phaseStar2 = 120;
-	  phaseStar3 = 40;
-	  phaseStar4 = 160;
-	  phaseStar5 = 80;
-   }
-
-   Position ptHubble;
-   Position ptSputnik;
-   Position ptStarlink;
-   Position ptCrewDragon;
-   Position ptShip;
-   Position ptGPS1;
-   Position ptGPS2;
-   Position ptGPS3;
-   Position ptGPS4;
-   Position ptGPS5;
-   Position ptGPS;
-   Position ptUpperRight;
-   Position ptStars[400];
-
-   unsigned char phaseStar;
-   unsigned char phaseStar2;
-   unsigned char phaseStar3;
-   unsigned char phaseStar4;
-   unsigned char phaseStar5;
-
-   double angleShip;
-   double angleEarth;
-
-   int count = 0;
-   char phase = 'a' + rand();
-};
+///*************************************************************************
+// * Demo
+// * Test structure to capture the LM that will move around the screen
+// *************************************************************************/
+//class Demo
+//{
+//public:
+//   Demo(Position ptUpperRight) :
+//      ptUpperRight(ptUpperRight)
+//   {
+//      ptHubble.setMeters(0.0, -42164000.0);
+//      //ptHubble.setVelocity(3100.0, 0.0);
+//
+//      ptSputnik.setMeters(-36515095.13 ,21082000.0 );
+//      //ptSputnik.setVelocity(2050.0, 2684.68);
+//
+//      ptStarlink.setMeters(0.0, -13020000.0);
+//      //ptStarlink.setVelocity(5800.0, 0.0);
+//
+//      ptCrewDragon.setMeters(0.0, 8000000.0);
+//      //ptCrewDragon.setVelocity(-7900.0, 0.0);
+//
+//      ptShip.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
+//      ptShip.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
+//
+//      //ptGPS.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
+//      //ptGPS.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
+//      ptGPS.setMeters(0.0, 26560000.0);
+//	  //ptGPS.setVelocity(-3880.0, 0.0);
+//	  ptGPS1.setMeters(23001634.72, 13280000.0);
+//	  //ptGPS1.setVelocity(-1940.00, 3360.18);
+//	  ptGPS2.setMeters(23001634.72, -13280000.0);
+//	  //ptGPS2.setVelocity(1940.00, 3360.18);
+//	  ptGPS3.setMeters(-23001634.72, 13280000.0);
+//	  //ptGPS3.setVelocity(-1940.00, -3360.18);
+//	  ptGPS4.setMeters(-23001634.72, -13280000.0);
+//	  //ptGPS4.setVelocity(1940.00, -3360.18);
+//	  ptGPS5.setMeters(0.0, -26560000.0);
+//	  //ptGPS5.setVelocity(3880.0, 0.0);
+//
+//
+//      for (int i = 0; i < 400; i++)
+//      {
+//		  ptStars[i].setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));  
+//		  ptStars[i].setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
+//		 
+//
+//      }
+//      //ptStar.setPixelsX(ptUpperRight.getPixelsX() * random(-0.5, 0.5));
+//      //ptStar.setPixelsY(ptUpperRight.getPixelsY() * random(-0.5, 0.5));
+//
+//      angleShip = 1.5;
+//      angleEarth = 0.0;
+//	  phaseStar = 0;
+//	  phaseStar2 = 120;
+//	  phaseStar3 = 40;
+//	  phaseStar4 = 160;
+//	  phaseStar5 = 80;
+//   }
+//
+//   Position ptHubble;
+//   Position ptSputnik;
+//   Position ptStarlink;
+//   Position ptCrewDragon;
+//   Position ptShip;
+//   Position ptGPS1;
+//   Position ptGPS2;
+//   Position ptGPS3;
+//   Position ptGPS4;
+//   Position ptGPS5;
+//   Position ptGPS;
+//   Position ptUpperRight;
+//   Position ptStars[400];
+//
+//   unsigned char phaseStar;
+//   unsigned char phaseStar2;
+//   unsigned char phaseStar3;
+//   unsigned char phaseStar4;
+//   unsigned char phaseStar5;
+//
+//   double angleShip;
+//   double angleEarth;
+//
+//   int count = 0;
+//   char phase = 'a' + rand();
+//};
 
 /*************************************
  * All the interesting work happens here, when
@@ -124,21 +125,27 @@ void callBack(const Interface* pUI, void* p)
 {
    // the first step is to cast the void pointer into a game object. This
    // is the first step of every single callback function in OpenGL. 
-   Demo* pDemo = (Demo*)p;
+   Sim* psim = (Sim*)p;
+
+
+
+
+
 
    //
    // accept input
    //
 
    // move by a little
-   if (pUI->isUp())
-      pDemo->ptShip.addPixelsY(1.0);
-   if (pUI->isDown())
-      pDemo->ptShip.addPixelsY(-1.0);
-   if (pUI->isLeft())
-      pDemo->ptShip.addPixelsX(-1.0);
-   if (pUI->isRight())
-      pDemo->ptShip.addPixelsX(1.0);
+   //if (pUI->isUp())
+   //   pDemo->ptShip.addPixelsY(1.0);
+   //if (pUI->isDown())
+   //   pDemo->ptShip.addPixelsY(-1.0);
+   //if (pUI->isLeft())
+   //   pDemo->ptShip.addPixelsX(-1.0);
+   //if (pUI->isRight())
+   //   pDemo->ptShip.addPixelsX(1.0);
+   
 
 
    //
@@ -202,9 +209,9 @@ void callBack(const Interface* pUI, void* p)
 
 
    // rotate the earth, ship, and stars
-   /*pDemo->angleEarth += earthRotation; 
-   pDemo->angleShip += (1.5 * earthRotation);
-   pDemo->phase = pDemo->phase + 1;
+   //pDemo->angleEarth += earthRotation; 
+   //pDemo->angleShip += (1.5 * earthRotation);
+  /* pDemo->phase = pDemo->phase + 1;
    pDemo->phaseStar++;
    pDemo->phaseStar2++;
    pDemo->phaseStar3++;
@@ -219,18 +226,25 @@ void callBack(const Interface* pUI, void* p)
    Position pt;
    ogstream gout(pt);
 
+   psim->draw(gout);
+   psim->advance();
+
+
+
+
    // draw satellites
-   gout.drawCrewDragon(pDemo->ptCrewDragon, pDemo->angleShip);
-   gout.drawHubble    (pDemo->ptHubble,     pDemo->angleShip);
-   gout.drawSputnik   (pDemo->ptSputnik,    pDemo->angleShip);
-   gout.drawStarlink  (pDemo->ptStarlink,   pDemo->angleShip);
-   //gout.drawShip      (pDemo->ptShip,       pDemo->angleShip, pUI->isSpace());
-   gout.drawGPS       (pDemo->ptGPS,        pDemo->angleShip);
-   gout.drawGPS(pDemo->ptGPS1, pDemo->angleShip);
-   gout.drawGPS(pDemo->ptGPS2, pDemo->angleShip);
-   gout.drawGPS(pDemo->ptGPS3, pDemo->angleShip);
-   gout.drawGPS(pDemo->ptGPS4, pDemo->angleShip);
-   gout.drawGPS(pDemo->ptGPS5, pDemo->angleShip);
+   //gout.drawCrewDragon(pDemo->ptCrewDragon, pDemo->angleShip);
+   //gout.drawHubble    (pDemo->ptHubble,     pDemo->angleShip);
+   //gout.drawSputnik   (pDemo->ptSputnik,    pDemo->angleShip);
+   //gout.drawStarlink  (pDemo->ptStarlink,   pDemo->angleShip);
+   ////gout.drawShip      (pDemo->ptShip,       pDemo->angleShip, pUI->isSpace());
+   //gout.drawGPS       (pDemo->ptGPS,        pDemo->angleShip);
+   //gout.drawGPS(pDemo->ptGPS1, pDemo->angleShip);
+   //gout.drawGPS(pDemo->ptGPS2, pDemo->angleShip);
+   //gout.drawGPS(pDemo->ptGPS3, pDemo->angleShip);
+   //gout.drawGPS(pDemo->ptGPS4, pDemo->angleShip);
+   //gout.drawGPS(pDemo->ptGPS5, pDemo->angleShip);
+
 
    // draw parts
    //pt.setPixelsX(pDemo->ptCrewDragon.getPixelsX() + 20);
@@ -255,37 +269,37 @@ void callBack(const Interface* pUI, void* p)
    //gout.drawFragment(pt, pDemo->angleShip);
 
    // draw stars
-   for (int i = 0; i < 400; i++)
-   {
-       gout.drawStar(pDemo->ptStars[i], (i * pDemo->phase));
-   
-       /*if (i % 5 == 0)
-       {
-           gout.drawStar(pDemo->ptStars[i], pDemo->phaseStar5);
-       }
-       else if (i % 5 == 1)
-       {
-		   gout.drawStar(pDemo->ptStars[i], pDemo->phaseStar4);
-	   }
-	   else if (i % 5 == 2)
-	   {
-		   gout.drawStar(pDemo->ptStars[i], pDemo->phaseStar3);
-	   }
-	   else if (i % 5 == 3)
-	   {
-		   gout.drawStar(pDemo->ptStars[i], pDemo->phaseStar2);
-	   }
-	   else
-	   {
-		   gout.drawStar(pDemo->ptStars[i], pDemo->phaseStar);
-	   }*/
-       
-   }
-   ;
+   //for (int i = 0; i < 400; i++)
+   //{
+   //    gout.drawStar(pDemo->ptStars[i], (i * pDemo->phase));
+   //
+   //    /*if (i % 5 == 0)
+   //    {
+   //        gout.drawStar(pDemo->ptStars[i], pDemo->phaseStar5);
+   //    }
+   //    else if (i % 5 == 1)
+   //    {
+		 //  gout.drawStar(pDemo->ptStars[i], pDemo->phaseStar4);
+	  // }
+	  // else if (i % 5 == 2)
+	  // {
+		 //  gout.drawStar(pDemo->ptStars[i], pDemo->phaseStar3);
+	  // }
+	  // else if (i % 5 == 3)
+	  // {
+		 //  gout.drawStar(pDemo->ptStars[i], pDemo->phaseStar2);
+	  // }
+	  // else
+	  // {
+		 //  gout.drawStar(pDemo->ptStars[i], pDemo->phaseStar);
+	  // }*/
+   //    
+   //}
+   //;
 
-   // draw the earth
-   pt.setMeters(0.0, 0.0);
-   gout.drawEarth(pt, pDemo->angleEarth);
+   //// draw the earth
+   //pt.setMeters(0.0, 0.0);
+   //gout.drawEarth(pt, pDemo->angleEarth);
 }
 
 double Position::metersFromPixels = 40.0;
@@ -317,11 +331,12 @@ int main(int argc, char** argv)
       ptUpperRight);
 
    // Initialize the demo
-   Demo demo(ptUpperRight);
-   
+
+   Sim psim(ptUpperRight);
+   psim.reset();
 
    // set everything into action
-   ui.run(callBack, &demo);
+   ui.run(callBack, &psim);
 
 
    return 0;
