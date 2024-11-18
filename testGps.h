@@ -10,6 +10,7 @@
 #include "gps.h"
 #include "unitTest.h"
 #include "objectType.h"
+#include <iostream>
 
 
  /***************************************
@@ -74,13 +75,13 @@ class TestGps : public UnitTest
 			
 			// verify
 			assertEquals(gps.getType(), GPS);
-			assertEquals(gps.getX(), 1.0);
-			assertEquals(gps.getY(), 2.0);
-			assertEquals(gps.getVelocityX(), 3.0);
-			assertEquals(gps.getVelocityY(), 4.0);
-			assertEquals(gps.getAngle(), 5.0);
-			assertEquals(gps.getRadius(), 6.0);
-			assertEquals(gps.getRotation(), 7.0);
+			assertEquals(gps.position.getMetersX(), 1.0);
+			assertEquals(gps.position.getMetersY(), 2.0);
+			assertEquals(gps.velocity.getVelocityX(), 3.0);
+			assertEquals(gps.velocity.getVelocityY(), 4.0);
+			assertEquals(gps.angle, 5.0);
+			assertEquals(gps.radius, 6.0);
+			assertEquals(gps.rotation, 7.0);
 			// teardown
 		}
 
@@ -108,18 +109,18 @@ class TestGps : public UnitTest
 		void advance()
 		{
 			// setup
-			Gps gps;
+			Gps gps(0.0, 26560000.0, -3880.0, 0.0, 1.5, 10.0, -0.0069813170079773175);
 			// exercise
 			gps.advance();
 			// verify
 			assertEquals(gps.getType(), GPS);
-			assertEquals(gps.getX(), 1.0);
-			assertEquals(gps.getY(), 2.0);
-			assertEquals(gps.getVelocityX(), 3.0);
-			assertEquals(gps.getVelocityY(), 4.0);
-			assertEquals(gps.getAngle(), 5.0);
-			assertEquals(gps.getRadius(), 6.0);
-			assertEquals(gps.getRotation(), 7.0);
+			assertEquals(gps.position.getMetersX(), -186240.000000000);
+			assertEquals(gps.position.getMetersY(), 26558045.627703581);
+			assertEquals(gps.velocity.getVelocityX(), -3880.0);
+			assertEquals(gps.velocity.getVelocityY(), -27.144059672480584);
+			assertEquals(gps.angle, 1.4930186829920227);
+			assertEquals(gps.radius, 10);
+			assertEquals(gps.rotation, -0.0069813170079773175);
 			// teardown
 		}
 };

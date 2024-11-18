@@ -40,8 +40,8 @@ void Sim::reset()
 	objects.push_back(gps);
 	objects.push_back(earth);
 
-	const double minRange = -1280000 * 50;
-	const double maxRange = 1280000 * 50;
+	const int minRange = -1280000 * 50;
+	const int maxRange = 1280000 * 50;
 
 	for (int i = 0; i < 400; i++)
 	{
