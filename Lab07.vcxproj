@@ -142,6 +142,7 @@
     <ClCompile Include="crewDragon.cpp" />
     <ClCompile Include="earth.cpp" />
     <ClCompile Include="gps.cpp" />
+    <ClCompile Include="hubble.cpp" />
     <ClCompile Include="Lab07.cpp" />
     <ClCompile Include="object.cpp" />
     <ClCompile Include="position.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="crewDragon.h" />
     <ClInclude Include="earth.h" />
     <ClInclude Include="gps.h" />
+    <ClInclude Include="hubble.h" />
     <ClInclude Include="object.h" />
     <ClInclude Include="objectType.h" />
     <ClInclude Include="position.h" />
@@ -168,6 +170,7 @@
     <ClInclude Include="testCrewDragon.h" />
     <ClInclude Include="testEarth.h" />
     <ClInclude Include="testGps.h" />
+    <ClInclude Include="testHubble.h" />
     <ClInclude Include="testPosition.h" />
     <ClInclude Include="testSputnik.h" />
     <ClInclude Include="testStar.h" />

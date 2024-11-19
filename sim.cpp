@@ -2,7 +2,7 @@
  * Source File:
  *    Sim : The foundation of everything on the screen
  * Author:
- *    Daniel Carr
+ *    Daniel Carr & Arlo Jolley
  * Summary:
  *    Keeps track of everything on the screen.
  ************************************************************************/
@@ -17,6 +17,7 @@
 #include "starLink.h"
 #include "crewDragon.h"
 #include "sputnik.h"
+#include "hubble.h"
 #include <cassert>
 #include "uiDraw.h"
 #include <cmath>
@@ -40,6 +41,7 @@ void Sim::reset()
 	StarLink* starLink = new StarLink(0.0, -13020000.0, 5800.0, 0.0, 0.75, 10.0, (4.5 * earthRotation));
 	CrewDragon* crewDragon = new CrewDragon(0.0, 8000000.0, -7900.0, 0.0, 0.0, 10.0, (1 * earthRotation));
 	Sputnik* sputnik = new Sputnik(-36515095.13, 21082000.0, 2050.0, 2684.68, 1.5, 10.0, (-0.5 * earthRotation));
+	Hubble* hubble = new Hubble(0.0, -42164000.0, 3100.0, 0.0, 1.5, 10.0, (-0.0069813170079773175 * earthRotation));
 
 	Earth* earth = new Earth(0.0,0.0,0.0,0.0,0.0,6378000.0,earthRotation);
 
@@ -47,6 +49,7 @@ void Sim::reset()
 	objects.push_back(starLink);
 	objects.push_back(crewDragon);
 	objects.push_back(sputnik);
+	objects.push_back(hubble);
 	objects.push_back(earth);
 
 	const int minRange = -1280000 * 50;
