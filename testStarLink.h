@@ -1,10 +1,10 @@
 /***********************************************************************
  * Header File:
- *    Test Gps : Test the Gps class
+ *    Test StarLink : Test the StarLink class
  * Author:
- *    Daniel Carr
+ *    Arlo Jolley
  * Summary:
- *    All the unit tests for Gps
+ *    All the unit tests for StarLink
  ************************************************************************/
 #pragma once
 #include "starLink.h"
@@ -14,8 +14,8 @@
 
 
  /***************************************
-  * TEST Gps
-   * A friend class for Gps which contains the Gps unit tests
+  * TEST StarLink
+   * A friend class for StarLink which contains the StarLink unit tests
 	***************************************/
 class TestStarLink : public UnitTest
 {
