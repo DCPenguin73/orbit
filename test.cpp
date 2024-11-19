@@ -13,6 +13,7 @@
 #include "testStar.h"
 #include "testEarth.h"
 #include "testGps.h"
+#include "testStarLink.h"
 
 #ifdef _WIN32
 #include <windows.h>
@@ -38,4 +39,5 @@ void testRunner()
    //TestStar().run();
    TestEarth().run();
    TestGps().run();
+   TestStarLink().run();
 }
