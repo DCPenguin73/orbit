@@ -14,6 +14,7 @@
 #include "testEarth.h"
 #include "testGps.h"
 #include "testStarLink.h"
+#include "testSputnik.h"
 #include "testCrewDragon.h"
 
 #ifdef _WIN32
@@ -42,4 +43,5 @@ void testRunner()
    TestGps().run();
    TestStarLink().run();
    TestCrewDragon().run();
+   TestSputnik().run();
 }

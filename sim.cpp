@@ -16,6 +16,7 @@
 #include "gps.h"
 #include "starLink.h"
 #include "crewDragon.h"
+#include "sputnik.h"
 #include <cassert>
 #include "uiDraw.h"
 #include <cmath>
@@ -35,15 +36,17 @@ void Sim::reset()
 	const double secondsDay = 86400.0;
 	const double frameRate = 30.0;
 	double earthRotation = (-((2 * M_PI) / frameRate) * (timeDilation / secondsDay));
-	Gps* gps = new Gps(0.0, 26560000.0, -3880.0, 0.0, 1.5, 10.0, (2* earthRotation));
+	Gps* gps = new Gps(0.0, 26560000.0, -3880.0, 0.0, 1.5, 10.0, (1.5 * earthRotation));
 	StarLink* starLink = new StarLink(0.0, -13020000.0, 5800.0, 0.0, 0.75, 10.0, (4.5 * earthRotation));
 	CrewDragon* crewDragon = new CrewDragon(0.0, 8000000.0, -7900.0, 0.0, 0.0, 10.0, (1 * earthRotation));
+	Sputnik* sputnik = new Sputnik(-36515095.13, 21082000.0, 2050.0, 2684.68, 1.5, 10.0, (-0.5 * earthRotation));
 
 	Earth* earth = new Earth(0.0,0.0,0.0,0.0,0.0,6378000.0,earthRotation);
 
 	objects.push_back(gps);
 	objects.push_back(starLink);
 	objects.push_back(crewDragon);
+	objects.push_back(sputnik);
 	objects.push_back(earth);
 
 	const int minRange = -1280000 * 50;

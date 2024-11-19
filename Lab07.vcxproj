@@ -146,6 +146,7 @@
     <ClCompile Include="object.cpp" />
     <ClCompile Include="position.cpp" />
     <ClCompile Include="sim.cpp" />
+    <ClCompile Include="sputnik.cpp" />
     <ClCompile Include="starLink.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="uiDraw.cpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="position.h" />
     <ClInclude Include="satellite.h" />
     <ClInclude Include="sim.h" />
+    <ClInclude Include="sputnik.h" />
     <ClInclude Include="star.h" />
     <ClInclude Include="starLink.h" />
     <ClInclude Include="test.h" />
@@ -167,6 +169,7 @@
     <ClInclude Include="testEarth.h" />
     <ClInclude Include="testGps.h" />
     <ClInclude Include="testPosition.h" />
+    <ClInclude Include="testSputnik.h" />
     <ClInclude Include="testStar.h" />
     <ClInclude Include="testStarLink.h" />
     <ClInclude Include="testVelocity.h" />
