@@ -49,11 +49,12 @@ void Sim::reset()
 	Sputnik* sputnik = new Sputnik(-36515095.13, 21082000.0, 2050.0, 2684.68, 1.5, 4.0, (-0.5 * earthRotation));
 	Hubble* hubble = new Hubble(0.0, -42164000.0, 3100.0, 0.0, 1.5, 10.0, (-0.5 * earthRotation));
 
-	//Ship* ship = new Ship(-63977500.0, 63977500.0, 0.0, -2000.0, 0.0, 10.0, 0.0);  // corect position
-	Ship* ship = new Ship(0.0, 26760000.0, 0.0, 0.0, 0.0, 10.0, 0.0);
+	Ship* ship = new Ship(-60000000.0, 60000000.0, 0.0, -2000.0, 0.0, 10.0, 0.0);  // corect position
+	//Ship* ship = new Ship(0.0, 30000000.0, 0.0, 0.0, 0.0, 10.0, 0.0);
 
 	Earth* earth = new Earth(0.0,0.0,0.0,0.0,0.0,6378000.0,earthRotation);
 
+	objects.push_back(ship);
 	objects.push_back(gps1);
 	objects.push_back(gps2);
 	objects.push_back(gps3);
@@ -64,7 +65,6 @@ void Sim::reset()
 	objects.push_back(crewDragon);
 	objects.push_back(sputnik);
 	objects.push_back(hubble);
-	objects.push_back(ship);
 	objects.push_back(earth);
 
 	const int minRange = -1280000 * 50;
@@ -113,9 +113,49 @@ void Sim::advance()
 
 		obj->advance();
 	}
+	/*for (Object* obj : objects) {
+
+		obj->advance();
+	}*/
 	for (Star& star : stars)
 	{
 		star.setPhase(star.getPhase() + 1);
+	}
+}
+
+/******************************************
+ * SIM : HANDLEKEYS
+ * Handle the keys
+ *****************************************/
+void Sim::handleKeys(const Interface* ui)
+{
+	for (Object* obj : objects)
+	{
+		if (obj->getType() == SHIP)
+		{
+			Ship* ship = dynamic_cast<Ship*>(obj);
+			if (ui->isDown())
+			{
+				ship->setThrust(true);
+			}
+			else
+			{
+				ship->setThrust(false);
+			}
+			if (ui->isLeft())
+			{
+				ship->setRotation(ship->getRotation() + 10.0);
+			}
+			if (ui->isRight())
+			{
+				ship->setRotation(ship->getRotation() - 10.0);
+			}
+			if (ui->isSpace())
+			{
+				ship->fire();
+			}
+
+		}
 	}
 }
 

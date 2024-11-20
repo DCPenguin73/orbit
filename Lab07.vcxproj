@@ -144,7 +144,6 @@
     <ClCompile Include="gps.cpp" />
     <ClCompile Include="hubble.cpp" />
     <ClCompile Include="Lab07.cpp" />
-    <ClCompile Include="object.cpp" />
     <ClCompile Include="position.cpp" />
     <ClCompile Include="ship.cpp" />
     <ClCompile Include="sim.cpp" />
@@ -174,6 +173,7 @@
     <ClInclude Include="testGps.h" />
     <ClInclude Include="testHubble.h" />
     <ClInclude Include="testPosition.h" />
+    <ClInclude Include="testSatelite.h" />
     <ClInclude Include="testSputnik.h" />
     <ClInclude Include="testStar.h" />
     <ClInclude Include="testStarLink.h" />
