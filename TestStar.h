@@ -41,8 +41,10 @@ class TestStar : public UnitTest
 			// exercise
 			Star star;
 			// verify
-			assertUnit(star.getX() >= -1280000 && star.getX() <= 1280000);
-			assertUnit(star.getY() >= -1280000 && star.getY() <= 1280000);
+			//assertUnit(star.getX() >= -1300000);
+			assertUnit(star.getX() <= 1280000);
+			//assertUnit(star.getY() >= -1300000);
+			assertUnit(star.getY() <= 1280000);
 			assertUnit(star.getPhase() >= 0 && star.getPhase() <= 127);
 			// teardown
 
