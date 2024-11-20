@@ -1,23 +1,23 @@
 
 #pragma once
-#include "satellite.h"
+#include "object.h"
 
 class TestSputnik;
 
-class Satellite;
+class Object;
 
 /*********************************************
  * Sputnik
  * a object in the sky
  *********************************************/
-class Sputnik : public Satellite
+class Sputnik : public Object
 {
 	friend TestSputnik;
 public:
 	// constructors
-	Sputnik() : Satellite(), position(), velocity(), angle(0.0), radius(0.0), rotation(0.0) {}
-	Sputnik(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); this->angle = angle; this->radius = radius; this->rotation = rotation; }
-	Sputnik(Position pos, Velocity vel, double angle, double radius, double rotation) { this->position = pos; this->velocity = vel; this->angle = angle; this->radius = radius; this->rotation = rotation; }
+	Sputnik() : Object() {}
+	Sputnik(double x, double y, double dx, double dy, double angle, double radius, double rotation) { this->setX(x); this->setY(y); this->setVelocityX(dx); this->setVelocityY(dy); this->setAngle(angle); this->setRadius(radius); this->setRotation(rotation); }
+	Sputnik(Position pos, Velocity vel, double angle, double radius, double rotation) { this->setPosition(pos); this->setVelocity(vel); this->setAngle(angle); this->setRadius(radius); this->setRotation(rotation); }
 
 	// getters
 	ObjectType getType() const { return SPUTNIK; }
@@ -25,19 +25,9 @@ public:
 	// setters
 
 	// other functions
-	void draw(ogstream& gout)
-	{
-		Position& pos = position;
-		gout.drawSputnik(pos, angle);
-	}
+	void draw(ogstream& gout) { gout.drawSputnik(this->getPosition(), this->getAngle()); }
 	void advance();
 
 private:
-	Position position;
-	Velocity velocity;
-	double angle;
-	double radius;
-	double rotation;
 	const ObjectType type = SPUTNIK;
 };
-
