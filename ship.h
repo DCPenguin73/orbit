@@ -29,12 +29,12 @@ class Ship : public Object
 
 	public:
 		// constructors
-		Ship() : Object(), position(), velocity(), angle(0.0), radius(0.0), rotation(0.0) {}
-		Ship(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); this->angle = angle; this->radius = radius; this->rotation = rotation; }
-		Ship(Position pos, Velocity vel, double angle, double radius, double rotation) { this->position = pos; this->velocity = vel; this->angle = angle; this->radius = radius; this->rotation = rotation; }
+		Ship() : Object(), thrust(false) {}
+		Ship(double x, double y, double dx, double dy, double angle, double radius, double rotation) { this->setX(x); this->setY(y); this->setVelocityX(dx); this->setVelocityY(dy); this->setAngle(angle); this->setRadius(radius); this->setRotation(rotation);}
+		Ship(Position pos, Velocity vel, double angle, double radius, double rotation) { this->setPosition(pos); this->setVelocity(vel); this->setAngle(angle); this->setRadius(radius); this->setRotation(rotation); }
 
 		// getters
-		double getX() const { return Object::getX(); }
+		/*double getX() const { return Object::getX(); }
 		double getY() const { return Object::getY(); }
 		double getVelocityX() const { return Object::getVelocityX(); }
 		double getVelocityY() const { return Object::getVelocityY(); }
@@ -42,25 +42,25 @@ class Ship : public Object
 		double getAccelerationY() const { return velocity.getAccelerationY(); }
 		double getAngle() const { return Object::getAngle(); }
 		double getRadius() const { return Object::getRadius(); }
-		double getRotation() const { return Object::getRotation(); }
+		double getRotation() const { return Object::getRotation(); }*/
 		ObjectType getType() const { return SHIP; }
 		bool getThrust() const { return thrust; }
 
 		// setters
-		void setX(double x) { Object::setX(x); }
+		/*void setX(double x) { Object::setX(x); }
 		void setY(double y) { Object::setY(y); }
 		void setVelocity(double dx, double dy) { Object::setVelocity(dx, dy); }
 		void setVelocityX(double dx) { Object::setVelocityX(dx); }
-		void setVelocityY(double dy) { Object::setVelocityY(dy); }
-		void setAccelerationY(double ddy) { velocity.setAccelerationY(ddy); }
-		void setAccelerationX(double ddx) { velocity.setAccelerationX(ddx); }
-		void setAngle(double angle) { Object::setAngle(angle); }
+		void setVelocityY(double dy) { Object::setVelocityY(dy); }*/
+		//void setAccelerationY(double ddy) { velocity.setAccelerationY(ddy); }
+		//void setAccelerationX(double ddx) { velocity.setAccelerationX(ddx); }
+		/*void setAngle(double angle) { Object::setAngle(angle); }
 		void setRadius(double radius) { Object::setRadius(radius); }
-		void setRotation(double rotation) { Object::setRotation(rotation); }
+		void setRotation(double rotation) { Object::setRotation(rotation); }*/
 		void setThrust(bool thrust) { this->thrust = thrust; }
 
 		// other functions
-		void draw(ogstream& gout) { Position& pos = position; gout.drawShip(pos, angle, thrust); }
+		void draw(ogstream& gout) { gout.drawShip(this->getPosition(), this->getAngle(), this->getThrust()); }
 		void advance();
 		void fire();
 		void rotateLeft();
@@ -69,11 +69,6 @@ class Ship : public Object
 		void thrustOff();
 
 	private:
-		Position position;
-		Velocity velocity;
-		double angle;
-		double radius;
-		double rotation;
 		bool thrust = false;
 		const ObjectType type = SHIP;
 

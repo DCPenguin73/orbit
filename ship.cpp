@@ -50,12 +50,12 @@ void Ship::fire()
 
 void Ship::rotateLeft()
 {
-	rotation += 0.1;
+	rotation += 1.0;
 }
 
 void Ship::rotateRight()
 {
-	rotation -= 0.1;
+	rotation -= 1.0;
 }
 
 void Ship::thrustOn()

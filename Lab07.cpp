@@ -42,6 +42,10 @@ void callBack(const Interface* pUI, void* p)
    Position pt;
    ogstream gout(pt);
 
+   // if keys are pressed, handle them
+   psim->handleKeys(pUI);
+
+   // draw the simulation
    psim->draw(gout);
    psim->advance();
 
