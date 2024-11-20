@@ -43,7 +43,7 @@ public:
 	// other functions
 	virtual void draw(ogstream& gout) {}
 
-private:
+protected:
 	Position position;
 	Velocity velocity;
 	double angle;

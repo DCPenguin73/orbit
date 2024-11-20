@@ -144,11 +144,11 @@ void Sim::handleKeys(const Interface* ui)
 			}
 			if (ui->isLeft())
 			{
-				ship->setRotation(ship->getRotation() + 10.0);
+				ship->setRotation(ship->getRotation() - 0.01);
 			}
 			if (ui->isRight())
 			{
-				ship->setRotation(ship->getRotation() - 10.0);
+				ship->setRotation(ship->getRotation() + 0.01);
 			}
 			if (ui->isSpace())
 			{
