@@ -146,6 +146,7 @@
     <ClCompile Include="Lab07.cpp" />
     <ClCompile Include="object.cpp" />
     <ClCompile Include="position.cpp" />
+    <ClCompile Include="ship.cpp" />
     <ClCompile Include="sim.cpp" />
     <ClCompile Include="sputnik.cpp" />
     <ClCompile Include="starLink.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="objectType.h" />
     <ClInclude Include="position.h" />
     <ClInclude Include="satellite.h" />
+    <ClInclude Include="ship.h" />
     <ClInclude Include="sim.h" />
     <ClInclude Include="sputnik.h" />
     <ClInclude Include="star.h" />
