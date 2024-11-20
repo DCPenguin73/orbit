@@ -34,8 +34,12 @@ void Ship::advance()
 	velocity.setVelocityX(dx);
 	velocity.setVelocityY(dy);
 
-	double x = x0 + (dx * timePerFrame) + (0.5 * ddx * (timePerFrame * timePerFrame));
-	double y = y0 + (dy * timePerFrame) + (0.5 * ddy * (timePerFrame * timePerFrame));
+	double startx = x0 + (dx0 * timePerFrame) + (0.5 * ddx * (timePerFrame * timePerFrame));
+	double starty = y0 + (dy0 * timePerFrame) + (0.5 * ddy * (timePerFrame * timePerFrame));
+	double endx = x0 + (dx * timePerFrame) + (0.5 * ddx * (timePerFrame * timePerFrame));
+	double endy = y0 + (dy * timePerFrame) + (0.5 * ddy * (timePerFrame * timePerFrame));
+	double x = (startx + endx) / 2;
+	double y = (starty + endy) / 2;
 	position.setMetersX(x);
 	position.setMetersY(y);
 	angle += rotation;
@@ -46,24 +50,4 @@ void Ship::advance()
 
 void Ship::fire()
 {
-}
-
-void Ship::rotateLeft()
-{
-	rotation += 1.0;
-}
-
-void Ship::rotateRight()
-{
-	rotation -= 1.0;
-}
-
-void Ship::thrustOn()
-{
-	thrust = true;
-}
-
-void Ship::thrustOff()
-{
-	thrust = false;
 }
