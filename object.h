@@ -14,6 +14,7 @@
 #include "position.h"
 #include "velocity.h"
 #include "uiDraw.h"
+#include "objectType.h"
 
 class TestObject;
 class Position;
@@ -37,6 +38,7 @@ public:
 	// getters
 	double getX() const { return position.getMetersX(); }
 	double getY() const { return position.getMetersY(); }
+	Position getPosition() const { return position; }
 	double getVelocityX() const { return velocity.getVelocityX(); }
 	double getVelocityY() const { return velocity.getVelocityY(); }
 	double getAngle() const { return angle; }
@@ -46,6 +48,8 @@ public:
 	// setters
 	void setX(double x) { this->position.setMetersX(x); }
 	void setY(double y) { this->position.setMetersY(y); }
+	void setPosition(Position pos) { this->position = pos; }
+	void setVelocity(Velocity vel) { this->velocity = vel; }
 	void setVelocity(double dx, double dy) { velocity.setVelocityX(dx); velocity.setVelocityY(dy); }
 	void setVelocityX(double dx) { this->velocity.setVelocityX(dx); }
 	void setVelocityY(double dy) { this->velocity.setVelocityY(dy); }
@@ -56,8 +60,9 @@ public:
 	// other functions
 	virtual void draw(ogstream& gout) = 0;
 	virtual void advance() = 0;
+	virtual ObjectType getType() const = 0;
 
-private:
+protected:
 	Position position;
 	Velocity velocity;
 	double angle;

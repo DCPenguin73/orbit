@@ -40,6 +40,9 @@ public:
 	Earth(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); this->angle = angle; this->radius = radius; this->rotation = rotation; }
 	~Earth() {}
 
+	// getters
+	ObjectType getType() const { return EARTH; }
+
 
 	// setters
 	void setX(double x) { position.setMetersX(0.0); }

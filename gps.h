@@ -1,21 +1,26 @@
 
 
 #pragma once
-#include "satellite.h"
+#include "Object.h"
 
-class Satellite;
+class TestGps;
+
+class Object;
 
 /*********************************************
  * Gps
  * a object in the sky
  *********************************************/
-class Gps : public Satellite
+class Gps : public Object
 {
+	friend TestGps;
 public:
 	// constructors
-	Gps() : Satellite(), position(), velocity(), angle(0.0), radius(0.0), rotation(0.0) {}
-	Gps(double x, double y, double dx, double dy, double angle, double radius, double rotation) { this->position.setMetersX(x); this->position.setMetersY(y); this->velocity.setVelocityX(dx); this->velocity.setVelocityY(dy); this->angle = angle; this->radius = radius; this->rotation = rotation; }
-	Gps(Position pos, Velocity vel, double angle, double radius, double rotation) { this->position = pos; this->velocity = vel; this->angle = angle; this->radius = radius; this->rotation = rotation; }
+	Gps() : Object() {}
+	Gps(double x, double y, double dx, double dy, double angle, double radius, double rotation) { this->setX(x); this->setY(y); this->setVelocityX(dx); this->setVelocityY(dy); this->setAngle(angle); this->setRadius(radius); this->setRotation(rotation); }
+	Gps(Position pos, Velocity vel, double angle, double radius, double rotation) {
+		this->setPosition(pos); this->setVelocity(vel); this->setAngle(angle); this->setRadius(radius); this->setRotation(rotation);
+	}
 
 	// getters
 	ObjectType getType() const { return GPS; }
@@ -23,19 +28,10 @@ public:
 	// setters
 
 	// other functions
-	void draw(ogstream& gout) 
-	{
-		Position& pos = position;
-		gout.drawGPS(pos, angle);
-	}
+	void draw(ogstream& gout) { gout.drawGPS(this->getPosition(), this->getAngle()); }
 	void advance();
 
 private:
-	Position position;
-	Velocity velocity;
-	double angle;
-	double radius;
-	double rotation;
 	const ObjectType type = GPS;
 };
 

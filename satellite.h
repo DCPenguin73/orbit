@@ -35,7 +35,7 @@ public:
 	Satellite(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); this->angle = angle; this->radius = radius; this->rotation = rotation;}
 
 	// getters
-	virtual ObjectType getType()                                    const = 0;
+	//virtual ObjectType getType() const = 0;
 
 	// setters
 
@@ -43,7 +43,7 @@ public:
 	// other functions
 	virtual void draw(ogstream& gout) {}
 
-private:
+protected:
 	Position position;
 	Velocity velocity;
 	double angle;

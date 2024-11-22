@@ -14,6 +14,7 @@
 #include "object.h"
 #include "star.h"
 #include <vector>
+#include "uiInteract.h"
 
 class TestSim;
 class object;
@@ -44,6 +45,7 @@ public:
 	void reset();
 	void draw(ogstream& gout);
 	void advance();
+	void handleKeys(const Interface* ui);
 
 	std::list<Object*> objectColision();
 	void colide(Object object1, Object object2);
