@@ -15,6 +15,7 @@ class TestVelocity;
 class Acceleration;
 class Position;
 class TestObject;
+class TestShip;
 
 /*********************************************
  * Velocity
@@ -25,6 +26,7 @@ class Velocity
 public:
 	friend TestVelocity;
 	friend TestObject;
+	friend TestShip;
 
 	// constructors
 	Velocity() : dx(0.0), dy(0.0), ddx(0.0), ddy(0.0) {}

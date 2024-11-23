@@ -13,6 +13,7 @@
 #include "TestStar.h"
 #include "TestEarth.h"
 #include "TestObject.h"
+#include "TestShip.h"
 
 #ifdef _WIN32
 #include <windows.h>
@@ -37,5 +38,6 @@ void testRunner()
    TestVelocity().run();
    TestStar().run();
    TestObject().run();
+   TestShip().run();
    TestEarth().run();
 }
