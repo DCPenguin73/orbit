@@ -9,10 +9,10 @@
 #pragma once
 #include <iostream>
 #include <cmath>
-#include "position.h"
+#include "Position.h"
 #include "uiDraw.h"
-#include "object.h"
-#include "objectType.h"
+#include "Object.h"
+#include "ObjectType.h"
 
 class TestShip;
 class Position;
@@ -43,7 +43,6 @@ class Ship : public Object
 		// other functions
 		void draw(ogstream& gout) { gout.drawShip(this->getPosition(), this->getAngle(), this->getThrust()); }
 		void advance();
-		void fire();
 
 	private:
 		bool thrust = false;

@@ -10,9 +10,9 @@
 
 #include <iostream>
 #include <cmath>
-#include "object.h"
-#include "position.h"
-#include "velocity.h"
+#include "Object.h"
+#include "Position.h"
+#include "Velocity.h"
 #include "uiDraw.h"
 
 class TestEarth;
@@ -52,10 +52,7 @@ public:
 	void setVelocityY(double dy) { velocity.setVelocityY(0.0); }
 
 	// other functions
-	void draw(ogstream& gout) 
-	{
-		gout.drawEarth(position, angle); 
-	}
+	void draw(ogstream& gout) {	gout.drawEarth(position, angle); }
 	void advance() { angle += rotation; }
 
 private:

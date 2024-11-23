@@ -7,7 +7,7 @@
  *    All the unit tests for Star
  ************************************************************************/
 #pragma once
-#include "star.h"
+#include "Star.h"
 #include "unitTest.h"
 
  /***************************************

@@ -10,7 +10,7 @@
 #pragma once
 #include <iostream>
 #include <cmath>
-#include "position.h"
+#include "Position.h"
 #include "uiDraw.h"
 
 

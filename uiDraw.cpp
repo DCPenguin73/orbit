@@ -35,7 +35,7 @@
 #include <math.h>
 #endif // _WIN32
 
-#include "position.h"
+#include "Position.h"
 #include "uiDraw.h"
 
 using namespace std;

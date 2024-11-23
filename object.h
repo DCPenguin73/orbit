@@ -11,10 +11,10 @@
 
 #include <iostream>
 #include <cmath>
-#include "position.h"
-#include "velocity.h"
+#include "Position.h"
+#include "Velocity.h"
 #include "uiDraw.h"
-#include "objectType.h"
+#include "ObjectType.h"
 
 class TestObject;
 class Position;

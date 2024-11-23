@@ -8,7 +8,7 @@
  ************************************************************************/
 
 #pragma once
-#include "velocity.h"
+#include "Velocity.h"
 #include "unitTest.h"
 
 

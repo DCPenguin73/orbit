@@ -11,8 +11,8 @@
 #include <iostream>
 #include <cmath>
 #include <list>
-#include "object.h"
-#include "star.h"
+#include "Object.h"
+#include "Star.h"
 #include <vector>
 #include "uiInteract.h"
 
@@ -56,4 +56,5 @@ private:
 
 	std::list<Star> stars;
 	Position upperRight;
+	int count = 0;
 };

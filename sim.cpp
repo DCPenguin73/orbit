@@ -8,22 +8,23 @@
  ************************************************************************/
 #define _USE_MATH_DEFINES
 #pragma once
-#include "sim.h"
-#include "object.h"
-#include "star.h"
+#include "Sim.h"
+#include "Object.h"
+#include "Star.h"
 #include <list>
 #include <iostream>
-#include "gps.h"
-#include "starLink.h"
-#include "crewDragon.h"
-#include "sputnik.h"
-#include "hubble.h"
+#include "Gps.h"
+#include "StarLink.h"
+#include "CrewDragon.h"
+#include "Sputnik.h"
+#include "Hubble.h"
 #include <cassert>
 #include "uiDraw.h"
 #include <cmath>
 #include "earth.h"
 #include <random>
-#include "ship.h"
+#include "Ship.h"
+#include "Projectile.h"
 
 class Object;
  /******************************************
@@ -99,6 +100,21 @@ void Sim::draw(ogstream& gout)
 	for (Object* obj : objects) {
 
 		obj->draw(gout);
+		if (obj->getType() == PROJECTILE)
+		{
+			Projectile* projectile = dynamic_cast<Projectile*>(obj);
+			if (projectile->getAge() > 70)
+			{
+				//projectile->~Projectile();
+				/*objects.remove(obj);*/
+				/*objects.remove(projectile);*/
+				count--;
+			}
+			else
+			{
+				projectile->setAge(projectile->getAge() + 1);
+			}
+		}
 	}
 
 }
@@ -152,7 +168,21 @@ void Sim::handleKeys(const Interface* ui)
 			}
 			if (ui->isSpace())
 			{
-				ship->fire();
+				if (count < 5)
+				{
+					Position pt = ship->getPosition();
+					pt.addPixelsX(-((19) * cos(ship->getAngle() + 90)));
+					pt.addPixelsY(((19) * sin(ship->getAngle() + 90)));
+					Velocity vel;
+					vel.setVelocityX(ship->getVelocityX());
+					vel.setVelocityY(ship->getVelocityY());
+					vel.setVelocityX(vel.getVelocityX() + (-((9000) * cos(ship->getAngle()+90))));
+					vel.setVelocityY(vel.getVelocityY() + ((9000) * sin(ship->getAngle() + 90)));
+
+					Projectile* projectile = new Projectile(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), ship->getAngle(), 1.0, 0.0);
+					objects.push_back(projectile);
+					count++;
+				}
 			}
 
 		}
