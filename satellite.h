@@ -10,14 +10,12 @@
 #pragma once
 #include <iostream> 
 #include <cmath>
-#include "object.h"
-#include "position.h"
-#include "velocity.h"
-#include "objectType.h"
+#include "Object.h"
+#include "Position.h"
+#include "Velocity.h"
+#include "ObjectType.h"
 #include "uiDraw.h"
 
-
-class TestSatellite;
 class Position;
 class Velocity;
 
@@ -27,26 +25,18 @@ class Velocity;
  *********************************************/
 class Satellite : public Object
 {
-public:
-	friend TestSatellite;
+	public:
+		// constructors
+		Satellite() :Object(), position(), velocity(), angle(0.0), radius(0.0), rotation(0.0) {}
+		Satellite(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); this->angle = angle; this->radius = radius; this->rotation = rotation;}
 
-	// constructors
-	Satellite() :Object(), position(), velocity(), angle(0.0), radius(0.0), rotation(0.0) {}
-	Satellite(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); this->angle = angle; this->radius = radius; this->rotation = rotation;}
+		// other functions
+		virtual void draw(ogstream& gout) {}
 
-	// getters
-	//virtual ObjectType getType() const = 0;
-
-	// setters
-
-
-	// other functions
-	virtual void draw(ogstream& gout) {}
-
-protected:
-	Position position;
-	Velocity velocity;
-	double angle;
-	double radius;
-	double rotation;
+	protected:
+		Position position;
+		Velocity velocity;
+		double angle;
+		double radius;
+		double rotation;
 };

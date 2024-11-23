@@ -9,7 +9,7 @@
 
 #define _USE_MATH_DEFINES 
 #pragma once
-#include "earth.h"
+#include "Earth.h"
 #include "unitTest.h"
 #include <iostream>
 #include <cmath>
