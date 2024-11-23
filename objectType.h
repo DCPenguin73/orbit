@@ -2,7 +2,7 @@
  * Header File:
  *    OBJECT TYPE
  * Author:
- *    Br. Helfrich
+ *    Bryce Chesley
  * Summary:
  *    Just an enumeration of a type type. Nothing fancy
  ************************************************************************/

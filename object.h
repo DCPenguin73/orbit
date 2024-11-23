@@ -49,7 +49,7 @@ public:
 	void setX(double x) { this->position.setMetersX(x); }
 	void setY(double y) { this->position.setMetersY(y); }
 	void setPosition(Position pos) { this->position = pos; }
-	void setVelocity(Velocity vel) { this->velocity = vel; }
+	void setVelocity(Velocity vel) { this->velocity.setVelocityX(vel.getVelocityX()); this->velocity.setVelocityY(vel.getVelocityY()); }
 	void setVelocity(double dx, double dy) { velocity.setVelocityX(dx); velocity.setVelocityY(dy); }
 	void setVelocityX(double dx) { this->velocity.setVelocityX(dx); }
 	void setVelocityY(double dy) { this->velocity.setVelocityY(dy); }
@@ -70,46 +70,21 @@ protected:
 	double rotation;
 };
 
-class dummyObject : public Object
+class DummyObject : public Object
 {
 	friend TestObject;
-	friend Object;
-	public:
-		dummyObject() : Object() {}
-		dummyObject(double x, double y, double dx, double dy, double angle, double radius, double rotation) : Object(x, y, dx, dy, angle, radius, rotation) {}
-		dummyObject(const dummyObject& pt) : Object(pt) {}
-		~dummyObject() {}
+public:
+	DummyObject() : Object() {};
+	DummyObject(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); this->angle = angle; this->radius = radius; this->rotation = rotation; }
+	~DummyObject() {}
+	void draw(ogstream& gout)
+	{
+		return;
+	}
 
-		// getters
-		double getX() const { return position.getMetersX(); }
-		double getY() const { return position.getMetersY(); }
-		Position getPosition() const { return position; }
-		double getVelocityX() const { return velocity.getVelocityX(); }
-		double getVelocityY() const { return velocity.getVelocityY(); }
-		double getAngle() const { return angle; }
-		double getRadius() const { return radius; }
-		double getRotation() const { return rotation; }
+	ObjectType getType() const
+	{
+		return DUMMY;
+	}
 
-		// setters
-		void setX(double x) { this->position.setMetersX(x); }
-		void setY(double y) { this->position.setMetersY(y); }
-		void setPosition(Position pos) { this->position = pos; }
-		void setVelocity(Velocity vel) { this->velocity = vel; }
-		void setVelocity(double dx, double dy) { velocity.setVelocityX(dx); velocity.setVelocityY(dy); }
-		void setVelocityX(double dx) { this->velocity.setVelocityX(dx); }
-		void setVelocityY(double dy) { this->velocity.setVelocityY(dy); }
-		void setAngle(double angle) { this->angle = angle; }
-		void setRadius(double radius) { this->radius = radius; }
-		void setRotation(double rotation) { this->rotation = rotation; }
-		void draw(ogstream& gout) { return; }
-
-		ObjectType getType() const { return ObjectType::DUMMY; }
-
-	private:
-		Position position;
-		Velocity velocity;
-		double angle;
-		double radius;
-		double rotation;
 };
-

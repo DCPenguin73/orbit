@@ -35,5 +35,6 @@ void testRunner()
    TestPosition().run();
    TestVelocity().run();
    TestStar().run();
+   TestObject().run();
    TestEarth().run();
 }
