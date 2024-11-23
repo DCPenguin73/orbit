@@ -12,6 +12,7 @@
 #include "TestVelocity.h"
 #include "TestStar.h"
 #include "TestEarth.h"
+#include "TestObject.h"
 
 #ifdef _WIN32
 #include <windows.h>
