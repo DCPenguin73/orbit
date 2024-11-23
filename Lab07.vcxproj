@@ -152,6 +152,7 @@
     <ClCompile Include="starLink.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="TestObject.cpp" />
+    <ClCompile Include="TestShip.cpp" />
     <ClCompile Include="uiDraw.cpp" />
     <ClCompile Include="uiInteract.cpp" />
   </ItemGroup>
@@ -177,6 +178,7 @@
     <ClInclude Include="TestObject.h" />
     <ClInclude Include="testPosition.h" />
     <ClInclude Include="testSatelite.h" />
+    <ClInclude Include="TestShip.h" />
     <ClInclude Include="testSputnik.h" />
     <ClInclude Include="testStar.h" />
     <ClInclude Include="testStarLink.h" />

@@ -27,8 +27,8 @@ void Ship::advance()
 
 	if (thrust == true)
 	{
-		double tddx = -((2) * cos(angle+90));
-		double tddy = ((2) * sin(angle+90));
+		double tddx = ((2) * sin(angle));
+		double tddy = ((2) * cos(angle));
 		ddx = ddx + tddx;
 		ddy = ddy + tddy;
 	}

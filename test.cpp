@@ -18,6 +18,7 @@
 #include "testCrewDragon.h"
 #include "testHubble.h"
 #include "testObject.h"
+#include "TestShip.h"
 
 #ifdef _WIN32
 #include <windows.h>
@@ -42,6 +43,7 @@ void testRunner()
    TestVelocity().run();
    TestStar().run();
    TestObject().run();
+   TestShip().run();
    //TestEarth().run();
    //TestGps().run();
    //TestStarLink().run();
