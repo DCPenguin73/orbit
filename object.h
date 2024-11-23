@@ -49,7 +49,7 @@ public:
 	void setX(double x) { this->position.setMetersX(x); }
 	void setY(double y) { this->position.setMetersY(y); }
 	void setPosition(Position pos) { this->position = pos; }
-	void setVelocity(Velocity vel) { this->velocity = vel; }
+	void setVelocity(Velocity vel) { this->velocity.setVelocityX(vel.getVelocityX()); this->velocity.setVelocityY(vel.getVelocityY()); }
 	void setVelocity(double dx, double dy) { velocity.setVelocityX(dx); velocity.setVelocityY(dy); }
 	void setVelocityX(double dx) { this->velocity.setVelocityX(dx); }
 	void setVelocityY(double dy) { this->velocity.setVelocityY(dy); }
@@ -70,3 +70,21 @@ protected:
 	double rotation;
 };
 
+class DummyObject : public Object
+{
+	friend TestObject;
+public:
+	DummyObject() : Object() {};
+	DummyObject(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); this->angle = angle; this->radius = radius; this->rotation = rotation; }
+	~DummyObject() {}
+	void draw(ogstream& gout)
+	{
+		return;
+	}
+
+	ObjectType getType() const
+	{
+		return DUMMY;
+	}
+
+};

@@ -151,6 +151,7 @@
     <ClCompile Include="sputnik.cpp" />
     <ClCompile Include="starLink.cpp" />
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="TestObject.cpp" />
     <ClCompile Include="uiDraw.cpp" />
     <ClCompile Include="uiInteract.cpp" />
   </ItemGroup>
@@ -173,6 +174,7 @@
     <ClInclude Include="testEarth.h" />
     <ClInclude Include="testGps.h" />
     <ClInclude Include="testHubble.h" />
+    <ClInclude Include="TestObject.h" />
     <ClInclude Include="testPosition.h" />
     <ClInclude Include="testSatelite.h" />
     <ClInclude Include="testSputnik.h" />
