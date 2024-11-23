@@ -59,7 +59,7 @@ public:
 
 	// other functions
 	virtual void draw(ogstream& gout) = 0;
-	virtual void advance() = 0;
+	virtual void advance();
 	virtual ObjectType getType() const = 0;
 
 protected:

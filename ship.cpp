@@ -22,8 +22,23 @@ void Ship::advance()
 
 	double ddx = ((gravity)*std::cos(dirGravPull));
 	double ddy = ((gravity)*std::sin(dirGravPull));
-	ddx = ddx;
-	ddy = ddy;
+	double tddx = 0;
+	double tddy = 0;
+
+	if (thrust == true)
+	{
+		double tddx = -((2) * cos(angle+90));
+		double tddy = ((2) * sin(angle+90));
+		ddx = ddx + tddx;
+		ddy = ddy + tddy;
+	}
+
+	else
+	{
+		ddx = ddx;
+		ddy = ddy;
+	}
+
 	velocity.setAccelerationX(ddx);
 	velocity.setAccelerationY(ddy);
 	double dx0 = velocity.getVelocityX();
