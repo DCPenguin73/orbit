@@ -171,13 +171,13 @@ void Sim::handleKeys(const Interface* ui)
 				if (count < 5)
 				{
 					Position pt = ship->getPosition();
-					pt.addPixelsX(-((19) * cos(ship->getAngle() + 90)));
-					pt.addPixelsY(((19) * sin(ship->getAngle() + 90)));
+					pt.addPixelsX(((19) * sin(ship->getAngle())));
+					pt.addPixelsY(((19) * cos(ship->getAngle())));
 					Velocity vel;
 					vel.setVelocityX(ship->getVelocityX());
 					vel.setVelocityY(ship->getVelocityY());
-					vel.setVelocityX(vel.getVelocityX() + (-((9000) * cos(ship->getAngle()+90))));
-					vel.setVelocityY(vel.getVelocityY() + ((9000) * sin(ship->getAngle() + 90)));
+					vel.setVelocityX(vel.getVelocityX() + ((9000) * sin(ship->getAngle())));
+					vel.setVelocityY(vel.getVelocityY() + ((9000) * cos(ship->getAngle())));
 
 					Projectile* projectile = new Projectile(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), ship->getAngle(), 1.0, 0.0);
 					objects.push_back(projectile);
