@@ -144,6 +144,7 @@
     <ClCompile Include="gps.cpp" />
     <ClCompile Include="hubble.cpp" />
     <ClCompile Include="Lab07.cpp" />
+    <ClCompile Include="object.cpp" />
     <ClCompile Include="position.cpp" />
     <ClCompile Include="ship.cpp" />
     <ClCompile Include="sim.cpp" />
