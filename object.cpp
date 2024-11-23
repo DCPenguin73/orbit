@@ -55,3 +55,4 @@ void Object::advance()
    position.setMetersY(y);
    angle += rotation;
 }
+
