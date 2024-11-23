@@ -14,13 +14,13 @@
 #include <cassert>      // for ASSERT
 #include "uiInteract.h" // for INTERFACE
 #include "uiDraw.h"     // for RANDOM and DRAW*
-#include "position.h"      // for POINT
-#include "test.h"
+#include "Position.h"      // for POINT
+#include "Test.h"
 #include <iostream>
 #include <cmath>
 #include <math.h>
 #include <iomanip>
-#include "sim.h"
+#include "Sim.h"
 #define _USE_MATH_DEFINES
 using namespace std;
 

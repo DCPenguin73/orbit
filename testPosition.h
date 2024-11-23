@@ -10,7 +10,7 @@
 
 #pragma once
 
-#include "position.h"
+#include "Position.h"
 #include "unitTest.h"
 
 /*******************************

@@ -1,7 +1,7 @@
 #define _USE_MATH_DEFINES
 #include <iostream>
 #include <cmath>
-#include "ship.h"
+#include "Ship.h"
 
 void Ship::advance()
 {
@@ -13,13 +13,10 @@ void Ship::advance()
 	const double earthRadius = 6378000.0;
 	double x0 = position.getMetersX();
 	double y0 = position.getMetersY();
-	const double height = (std::sqrt((x0 * x0) + (y0 * y0))) - earthRadius; //35786000.000000000;
-	//assert (35785000 < height && height < 35787000);
+	const double height = (std::sqrt((x0 * x0) + (y0 * y0))) - earthRadius;
 	const double gravSea = 9.80665;
 	double gravity = gravSea * ((earthRadius / (earthRadius + height)) * (earthRadius / (earthRadius + height)));
-
 	double dirGravPull = (std::atan2((0 - y0), (0 - x0)));
-
 	double ddx = ((gravity)*std::cos(dirGravPull));
 	double ddy = ((gravity)*std::sin(dirGravPull));
 	double tddx = 0;
@@ -58,11 +55,4 @@ void Ship::advance()
 	position.setMetersX(x);
 	position.setMetersY(y);
 	angle += rotation;
-
-	//std::cout << "x: " << x << " y: " << y << " dx: " << dx << " dy: " << dy << " ddx: " << ddx << " ddy: " << ddy << std::endl;
-
-}
-
-void Ship::fire()
-{
 }
