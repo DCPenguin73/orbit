@@ -2,7 +2,7 @@
  * Source File:
  *    Sim : The foundation of everything on the screen
  * Author:
- *    Daniel Carr & Arlo Jolley
+ *    Daniel Carr & Arlo Jolley & Bryce Chesley
  * Summary:
  *    Keeps track of everything on the screen.
  ************************************************************************/

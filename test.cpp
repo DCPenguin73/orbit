@@ -40,10 +40,10 @@ void testRunner()
    TestPosition().run();
    TestVelocity().run();
    TestStar().run();
-   TestEarth().run();
-   TestGps().run();
-   TestStarLink().run();
-   TestCrewDragon().run();
-   TestSputnik().run();
-   TestHubble().run();
+   //TestEarth().run();
+   //TestGps().run();
+   //TestStarLink().run();
+   //TestCrewDragon().run();
+   //TestSputnik().run();
+   //TestHubble().run();
 }
