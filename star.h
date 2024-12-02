@@ -53,7 +53,3 @@ private:
 	char phase;
 
 };
-
-
-
-

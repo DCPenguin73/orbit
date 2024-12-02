@@ -31,8 +31,10 @@ class HubbleComputer : public Part
 public:
 	// constructors
 	HubbleComputer() : Part() {}
-	HubbleComputer(double x, double y, double dx, double dy, double angle, double radius, double rotation) { this->setX(x); this->setY(y); this->setVelocityX(dx); this->setVelocityY(dy); this->setAngle(angle); this->setRadius(radius); this->setRotation(rotation); }
-	HubbleComputer(Position pos, Velocity vel, double angle, double radius, double rotation) { this->setPosition(pos); this->setVelocity(vel); this->setAngle(angle); this->setRadius(radius); this->setRotation(rotation); }
+	HubbleComputer(double x, double y, double dx, double dy, double angle, double radius, double rotation) { this->setX(x); this->setY(y); this->setVelocityX(dx); this->setVelocityY(dy); 
+	this->setAngle(angle); this->setRadius(radius); this->setRotation(rotation); }
+	HubbleComputer(Position pos, Velocity vel, double angle, double radius, double rotation) { this->setPosition(pos); this->setVelocity(vel); this->setAngle(angle); this->setRadius(radius); 
+	this->setRotation(rotation); }
 
 	// other functions
 	void breakApart() { return; }

@@ -31,7 +31,8 @@ class Object
 public:
 	// constructors
 	Object() : position(), velocity(), angle(0.0), radius(0.0), rotation(0.0) {}
-	Object(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); this->angle = angle; this->radius = radius; this->rotation = rotation; }
+	Object(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); 
+	this->angle = angle; this->radius = radius; this->rotation = rotation; }
 	Object(const Object& pt) : position(pt.position), velocity(pt.velocity), angle(pt.angle), radius(pt.radius), rotation(pt.rotation) {}
 	~Object() {}
 
@@ -75,7 +76,8 @@ class DummyObject : public Object
 	friend TestObject;
 public:
 	DummyObject() : Object() {};
-	DummyObject(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); this->angle = angle; this->radius = radius; this->rotation = rotation; }
+	DummyObject(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); 
+	velocity.setVelocityY(dy); this->angle = angle; this->radius = radius; this->rotation = rotation; }
 	~DummyObject() {}
 	void draw(ogstream& gout)
 	{
