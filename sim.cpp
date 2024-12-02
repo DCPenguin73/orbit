@@ -25,6 +25,7 @@
 #include <random>
 #include "Ship.h"
 #include "Projectile.h"
+#include "Fragment.h"
 
 class Object;
  /******************************************
@@ -97,20 +98,38 @@ void Sim::draw(ogstream& gout)
 	{
 		star.draw(gout);
 	}
-	for (auto it = objects.begin(); it != objects.end(); ) {
+	for (auto it = objects.begin(); it != objects.end(); )
+	{
 		(*it)->draw(gout);
-		if ((*it)->getType() == PROJECTILE) {
+		if ((*it)->getType() == PROJECTILE)
+		{
 			Projectile* projectile = dynamic_cast<Projectile*>(*it);
-			if (projectile->getAge() > 70) {
+			if (projectile->getAge() > 70)
+			{
 				it = objects.erase(it);
 				count--;
 			}
-			else {
+			else
+			{
 				projectile->setAge(projectile->getAge() + 1);
 				++it;
 			}
 		}
-		else {
+		else if ((*it)->getType() == FRAGMENT)
+		{
+			Fragment* fragment = dynamic_cast<Fragment*>(*it);
+			if (fragment->getAge() > 70)
+			{
+				it = objects.erase(it);
+			}
+			else
+			{
+				fragment->setAge(fragment->getAge() + 1);
+				++it;
+			}
+		}
+		else
+		{
 			++it;
 		}
 	}
@@ -123,15 +142,6 @@ void Sim::draw(ogstream& gout)
  *****************************************/
 void Sim::advance()
 {
-	//for (auto it = objects.begin(); it != objects.end(); ) {
-	//	if (it->getType() == PROJECTILE && it->getAge() > 100) {
-	//		it = objects.remove(it); // Use the iterator returned by remove
-	//	}
-	//	else {
-	//		it->advance();
-	//		++it; // Increment the iterator only if not removing
-	//	}
-	//}
 	for (Object* obj : objects) {
 
 		obj->advance();
