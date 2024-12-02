@@ -151,7 +151,6 @@
     <ClCompile Include="uiInteract.cpp" />
   </ItemGroup>
   <ItemGroup>
-
     <ClInclude Include="CrewDragon.h" />
     <ClInclude Include="Earth.h" />
     <ClInclude Include="Fragment.h" />
@@ -160,6 +159,9 @@
     <ClInclude Include="GPSLeft.h" />
     <ClInclude Include="GPSRight.h" />
     <ClInclude Include="Hubble.h" />
+    <ClInclude Include="HubbleComputer.h" />
+    <ClInclude Include="HubbleLeft.h" />
+    <ClInclude Include="HubbleTelescope.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectType.h" />
     <ClInclude Include="Part.h" />
