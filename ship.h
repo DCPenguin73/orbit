@@ -58,7 +58,7 @@ class Ship : public Object
 			vel.setVelocityX(vel.getVelocityX() + ((4000) * sin(this->getAngle())));
 			vel.setVelocityY(vel.getVelocityY() + ((4000) * cos(this->getAngle())));
 			double angle = this->getAngle();
-			Fragment* fragment = new Fragment(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), angle, 1.0, 0.0);
+			Fragment* fragment = new Fragment(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), angle, 2.0, 0.0);
 			objects.push_back(fragment);
 			Position pt2 = this->getPosition();
 			pt2.addPixelsX(((19) * sin(this->getAngle() + 30)));
@@ -68,7 +68,7 @@ class Ship : public Object
 			vel2.setVelocityY(this->getVelocityY());
 			vel2.setVelocityX(vel2.getVelocityX() + ((4000) * sin(this->getAngle() + 30)));
 			vel2.setVelocityY(vel2.getVelocityY() + ((4000) * cos(this->getAngle() + 30)));
-			Fragment* fragment2 = new Fragment(pt2.getMetersX(), pt2.getMetersY(), vel2.getVelocityX(), vel2.getVelocityY(), angle, 1.0, 0.0);
+			Fragment* fragment2 = new Fragment(pt2.getMetersX(), pt2.getMetersY(), vel2.getVelocityX(), vel2.getVelocityY(), angle, 2.0, 0.0);
 			objects.push_back(fragment2);
 			Position pt3 = this->getPosition();
 			pt3.addPixelsX(((19) * sin(this->getAngle() + 60)));
@@ -78,7 +78,7 @@ class Ship : public Object
 			vel3.setVelocityY(this->getVelocityY());
 			vel3.setVelocityX(vel3.getVelocityX() + ((4000) * sin(this->getAngle() + 60)));
 			vel3.setVelocityY(vel3.getVelocityY() + ((4000) * cos(this->getAngle() + 60)));
-			Fragment* fragment3 = new Fragment(pt3.getMetersX(), pt3.getMetersY(), vel3.getVelocityX(), vel3.getVelocityY(), angle, 1.0, 0.0);
+			Fragment* fragment3 = new Fragment(pt3.getMetersX(), pt3.getMetersY(), vel3.getVelocityX(), vel3.getVelocityY(), angle, 2.0, 0.0);
 			objects.push_back(fragment3);
 			Position pt4 = this->getPosition();
 			pt4.addPixelsX(((19) * sin(this->getAngle() + 90)));
@@ -88,7 +88,7 @@ class Ship : public Object
 			vel4.setVelocityY(this->getVelocityY());
 			vel4.setVelocityX(vel4.getVelocityX() + ((4000) * sin(this->getAngle() + 90)));
 			vel4.setVelocityY(vel4.getVelocityY() + ((4000) * cos(this->getAngle() + 90)));
-			Fragment* fragment4 = new Fragment(pt4.getMetersX(), pt4.getMetersY(), vel4.getVelocityX(), vel4.getVelocityY(), angle, 1.0, 0.0);
+			Fragment* fragment4 = new Fragment(pt4.getMetersX(), pt4.getMetersY(), vel4.getVelocityX(), vel4.getVelocityY(), angle, 2.0, 0.0);
 			objects.push_back(fragment4);
 			Position pt5 = this->getPosition();
 			pt5.addPixelsX(((19) * sin(this->getAngle() + 120)));
@@ -98,7 +98,7 @@ class Ship : public Object
 			vel5.setVelocityY(this->getVelocityY());
 			vel5.setVelocityX(vel5.getVelocityX() + ((4000) * sin(this->getAngle() + 120)));
 			vel5.setVelocityY(vel5.getVelocityY() + ((4000) * cos(this->getAngle() + 120)));
-			Fragment* fragment5 = new Fragment(pt5.getMetersX(), pt5.getMetersY(), vel5.getVelocityX(), vel5.getVelocityY(), angle, 1.0, 0.0);
+			Fragment* fragment5 = new Fragment(pt5.getMetersX(), pt5.getMetersY(), vel5.getVelocityX(), vel5.getVelocityY(), angle, 2.0, 0.0);
 			objects.push_back(fragment5);
 			Position pt6 = this->getPosition();
 			pt6.addPixelsX(((19) * sin(this->getAngle() + 150)));
@@ -108,7 +108,7 @@ class Ship : public Object
 			vel6.setVelocityY(this->getVelocityY());
 			vel6.setVelocityX(vel6.getVelocityX() + ((4000) * sin(this->getAngle() + 150)));
 			vel6.setVelocityY(vel6.getVelocityY() + ((4000) * cos(this->getAngle() + 150)));
-			Fragment* fragment6 = new Fragment(pt6.getMetersX(), pt6.getMetersY(), vel6.getVelocityX(), vel6.getVelocityY(), angle, 1.0, 0.0);
+			Fragment* fragment6 = new Fragment(pt6.getMetersX(), pt6.getMetersY(), vel6.getVelocityX(), vel6.getVelocityY(), angle, 2.0, 0.0);
 			objects.push_back(fragment6);
 			Position pt7 = this->getPosition();
 			pt7.addPixelsX(((19) * sin(this->getAngle() + 180)));
@@ -118,7 +118,7 @@ class Ship : public Object
 			vel7.setVelocityY(this->getVelocityY());
 			vel7.setVelocityX(vel7.getVelocityX() + ((4000) * sin(this->getAngle() + 180)));
 			vel7.setVelocityY(vel7.getVelocityY() + ((4000) * cos(this->getAngle() + 180)));
-			Fragment* fragment7 = new Fragment(pt7.getMetersX(), pt7.getMetersY(), vel7.getVelocityX(), vel7.getVelocityY(), angle, 1.0, 0.0);
+			Fragment* fragment7 = new Fragment(pt7.getMetersX(), pt7.getMetersY(), vel7.getVelocityX(), vel7.getVelocityY(), angle, 2.0, 0.0);
 			objects.push_back(fragment7);
 			Position pt8 = this->getPosition();
 			pt8.addPixelsX(((19) * sin(this->getAngle() + 210)));
@@ -128,7 +128,7 @@ class Ship : public Object
 			vel8.setVelocityY(this->getVelocityY());
 			vel8.setVelocityX(vel8.getVelocityX() + ((4000) * sin(this->getAngle() + 210)));
 			vel8.setVelocityY(vel8.getVelocityY() + ((4000) * cos(this->getAngle() + 210)));
-			Fragment* fragment8 = new Fragment(pt8.getMetersX(), pt8.getMetersY(), vel8.getVelocityX(), vel8.getVelocityY(), angle, 1.0, 0.0);
+			Fragment* fragment8 = new Fragment(pt8.getMetersX(), pt8.getMetersY(), vel8.getVelocityX(), vel8.getVelocityY(), angle, 2.0, 0.0);
 			objects.push_back(fragment8);
 			Position pt9 = this->getPosition();
 			pt9.addPixelsX(((19) * sin(this->getAngle() + 240)));
@@ -138,7 +138,7 @@ class Ship : public Object
 			vel9.setVelocityY(this->getVelocityY());
 			vel9.setVelocityX(vel9.getVelocityX() + ((4000) * sin(this->getAngle() + 240)));
 			vel9.setVelocityY(vel9.getVelocityY() + ((4000) * cos(this->getAngle() + 240)));
-			Fragment* fragment9 = new Fragment(pt9.getMetersX(), pt9.getMetersY(), vel9.getVelocityX(), vel9.getVelocityY(), angle, 1.0, 0.0);
+			Fragment* fragment9 = new Fragment(pt9.getMetersX(), pt9.getMetersY(), vel9.getVelocityX(), vel9.getVelocityY(), angle, 2.0, 0.0);
 			objects.push_back(fragment9);
 			Position pt10 = this->getPosition();
 			pt10.addPixelsX(((19) * sin(this->getAngle() + 270)));
@@ -148,7 +148,7 @@ class Ship : public Object
 			vel10.setVelocityY(this->getVelocityY());
 			vel10.setVelocityX(vel10.getVelocityX() + ((4000) * sin(this->getAngle() + 270)));
 			vel10.setVelocityY(vel10.getVelocityY() + ((4000) * cos(this->getAngle() + 270)));
-			Fragment* fragment10 = new Fragment(pt10.getMetersX(), pt10.getMetersY(), vel10.getVelocityX(), vel10.getVelocityY(), angle, 1.0, 0.0);
+			Fragment* fragment10 = new Fragment(pt10.getMetersX(), pt10.getMetersY(), vel10.getVelocityX(), vel10.getVelocityY(), angle, 2.0, 0.0);
 			objects.push_back(fragment10);
 			Position pt11 = this->getPosition();
 			pt11.addPixelsX(((19)* sin(this->getAngle() + 300)));
@@ -158,7 +158,7 @@ class Ship : public Object
 			vel11.setVelocityY(this->getVelocityY());
 			vel11.setVelocityX(vel11.getVelocityX() + ((4000) * sin(this->getAngle() + 300)));
 			vel11.setVelocityY(vel11.getVelocityY() + ((4000) * cos(this->getAngle() + 300)));
-			Fragment* fragment11 = new Fragment(pt11.getMetersX(), pt11.getMetersY(), vel11.getVelocityX(), vel11.getVelocityY(), angle, 1.0, 0.0);
+			Fragment* fragment11 = new Fragment(pt11.getMetersX(), pt11.getMetersY(), vel11.getVelocityX(), vel11.getVelocityY(), angle, 2.0, 0.0);
 			objects.push_back(fragment11);
 			Position pt12 = this->getPosition();
 			pt12.addPixelsX(((19)* sin(this->getAngle() + 330)));
@@ -168,7 +168,7 @@ class Ship : public Object
 			vel12.setVelocityY(this->getVelocityY());
 			vel12.setVelocityX(vel12.getVelocityX() + ((4000) * sin(this->getAngle() + 330)));
 			vel12.setVelocityY(vel12.getVelocityY() + ((4000) * cos(this->getAngle() + 330)));
-			Fragment* fragment12 = new Fragment(pt12.getMetersX(), pt12.getMetersY(), vel12.getVelocityX(), vel12.getVelocityY(), angle, 1.0, 0.0);
+			Fragment* fragment12 = new Fragment(pt12.getMetersX(), pt12.getMetersY(), vel12.getVelocityX(), vel12.getVelocityY(), angle, 2.0, 0.0);
 			objects.push_back(fragment12);
 			return objects;
 		}

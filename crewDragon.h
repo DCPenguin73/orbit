@@ -89,7 +89,7 @@ class CrewDragon : public Satellite
 				vel.setVelocityX(vel.getVelocityX() + ((4000) * sin(this->getAngle() + 72)));
 				vel.setVelocityY(vel.getVelocityY() + ((4000) * cos(this->getAngle() + 72)));
 
-				Fragment* fragment1 = new Fragment(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 1.0, 0.0);
+				Fragment* fragment1 = new Fragment(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 2.0, 0.0);
 				objectList.push_back(fragment1);
 			}
 
@@ -103,7 +103,7 @@ class CrewDragon : public Satellite
 				vel.setVelocityX(vel.getVelocityX() + ((4000) * sin(this->getAngle() + 288)));
 				vel.setVelocityY(vel.getVelocityY() + ((4000) * cos(this->getAngle() + 288)));
 
-				Fragment* fragment2 = new Fragment(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 1.0, 0.0);
+				Fragment* fragment2 = new Fragment(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 2.0, 0.0);
 				objectList.push_back(fragment2);
 			}
 			return objectList;
