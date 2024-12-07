@@ -11,9 +11,10 @@
 
 #include <iostream>
 #include <cmath>
-#include "position.h"
-#include "velocity.h"
+#include "Position.h"
+#include "Velocity.h"
 #include "uiDraw.h"
+#include "ObjectType.h"
 
 class TestObject;
 class Position;
@@ -30,13 +31,15 @@ class Object
 public:
 	// constructors
 	Object() : position(), velocity(), angle(0.0), radius(0.0), rotation(0.0) {}
-	Object(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); this->angle = angle; this->radius = radius; this->rotation = rotation; }
+	Object(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); 
+	this->angle = angle; this->radius = radius; this->rotation = rotation; }
 	Object(const Object& pt) : position(pt.position), velocity(pt.velocity), angle(pt.angle), radius(pt.radius), rotation(pt.rotation) {}
 	~Object() {}
 
 	// getters
 	double getX() const { return position.getMetersX(); }
 	double getY() const { return position.getMetersY(); }
+	Position getPosition() const { return position; }
 	double getVelocityX() const { return velocity.getVelocityX(); }
 	double getVelocityY() const { return velocity.getVelocityY(); }
 	double getAngle() const { return angle; }
@@ -46,6 +49,8 @@ public:
 	// setters
 	void setX(double x) { this->position.setMetersX(x); }
 	void setY(double y) { this->position.setMetersY(y); }
+	void setPosition(Position pos) { this->position = pos; }
+	void setVelocity(Velocity vel) { this->velocity.setVelocityX(vel.getVelocityX()); this->velocity.setVelocityY(vel.getVelocityY()); }
 	void setVelocity(double dx, double dy) { velocity.setVelocityX(dx); velocity.setVelocityY(dy); }
 	void setVelocityX(double dx) { this->velocity.setVelocityX(dx); }
 	void setVelocityY(double dy) { this->velocity.setVelocityY(dy); }
@@ -55,9 +60,11 @@ public:
 
 	// other functions
 	virtual void draw(ogstream& gout) = 0;
-	virtual void advance() = 0;
+	virtual void advance();
+	virtual ObjectType getType() const = 0;
+	//virtual std::list<Object*> collide() const = 0;
 
-private:
+protected:
 	Position position;
 	Velocity velocity;
 	double angle;
@@ -65,3 +72,22 @@ private:
 	double rotation;
 };
 
+class DummyObject : public Object
+{
+	friend TestObject;
+public:
+	DummyObject() : Object() {};
+	DummyObject(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); 
+	velocity.setVelocityY(dy); this->angle = angle; this->radius = radius; this->rotation = rotation; }
+	~DummyObject() {}
+	void draw(ogstream& gout)
+	{
+		return;
+	}
+
+	ObjectType getType() const
+	{
+		return DUMMY;
+	}
+
+};

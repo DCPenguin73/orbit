@@ -10,9 +10,9 @@
 
 #include <iostream>
 #include <cmath>
-#include "object.h"
-#include "position.h"
-#include "velocity.h"
+#include "Object.h"
+#include "Position.h"
+#include "Velocity.h"
 #include "uiDraw.h"
 
 class TestEarth;
@@ -37,8 +37,12 @@ class Earth : public Object
 public:
 	// constructors
 	Earth() : Object(), angle(0.0), radius(6378000.0), rotation(rotation) {}
-	Earth(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); this->angle = angle; this->radius = radius; this->rotation = rotation; }
+	Earth(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); 
+	this->angle = angle; this->radius = radius; this->rotation = rotation; }
 	~Earth() {}
+
+	// getters
+	ObjectType getType() const { return EARTH; }
 
 
 	// setters
@@ -49,10 +53,7 @@ public:
 	void setVelocityY(double dy) { velocity.setVelocityY(0.0); }
 
 	// other functions
-	void draw(ogstream& gout) 
-	{
-		gout.drawEarth(position, angle); 
-	}
+	void draw(ogstream& gout) {	gout.drawEarth(position, angle); }
 	void advance() { angle += rotation; }
 
 private:
