@@ -30,59 +30,71 @@ class Hubble : public Satellite
 
 		// other functions
 		void draw(ogstream& gout) { gout.drawHubble(this->getPosition(), this->getAngle()); }
-		std::list<Object*> collide() const
+
+		std::list<Object*> collide()
 		{
 			std::list<Object*> objectList;
+
 			{
 				Position pt = this->getPosition();
-				pt.addPixelsX(((4) * sin(this->getAngle())));
-				pt.addPixelsY(((4) * cos(this->getAngle())));
+				pt.addPixelsX(((10) * sin(this->getAngle())));
+				pt.addPixelsY(((10) * cos(this->getAngle())));
 				Velocity vel;
 				vel.setVelocityX(this->getVelocityX());
 				vel.setVelocityY(this->getVelocityY());
 				vel.setVelocityX(vel.getVelocityX() + ((5000) * sin(this->getAngle())));
 				vel.setVelocityY(vel.getVelocityY() + ((5000) * cos(this->getAngle())));
-				HubbleTelescope* hubbleTelescope = new HubbleTelescope(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 10.0, 0.0);
-				objectList.push_back(hubbleTelescope);
+
+				HubbleTelescope* hTelescope = new HubbleTelescope(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 6.0, 0.0);
+				objectList.push_back(hTelescope);
 			}
+
 			{
 				Position pt = this->getPosition();
-				pt.addPixelsX(((4) * sin(this->getAngle() + 90)));
-				pt.addPixelsY(((4) * cos(this->getAngle() + 90)));
+				pt.addPixelsX(((10) * sin(this->getAngle() + 144)));
+				pt.addPixelsY(((10) * cos(this->getAngle() + 144)));
 				Velocity vel;
 				vel.setVelocityX(this->getVelocityX());
 				vel.setVelocityY(this->getVelocityY());
-				vel.setVelocityX(vel.getVelocityX() + ((5000) * sin(this->getAngle() + 90)));
-				vel.setVelocityY(vel.getVelocityY() + ((5000) * cos(this->getAngle() + 90)));
-				HubbleLeft* hubbleLeft = new HubbleLeft(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 8.0, 0.0);
-				objectList.push_back(hubbleLeft);
+				vel.setVelocityX(vel.getVelocityX() + ((5000) * sin(this->getAngle() + 144)));
+				vel.setVelocityY(vel.getVelocityY() + ((5000) * cos(this->getAngle() + 144)));
+
+				HubbleComputer* hComputer = new HubbleComputer(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 6.0, 0.0);
+
+				objectList.push_back(hComputer);
 			}
+
 			{
 				Position pt = this->getPosition();
-				pt.addPixelsX(((4) * sin(this->getAngle() + 180)));
-				pt.addPixelsY(((4) * cos(this->getAngle() + 180)));
+				pt.addPixelsX(((10) * sin(this->getAngle() + 216)));
+				pt.addPixelsY(((10) * cos(this->getAngle() + 216)));
 				Velocity vel;
 				vel.setVelocityX(this->getVelocityX());
 				vel.setVelocityY(this->getVelocityY());
-				vel.setVelocityX(vel.getVelocityX() + ((5000) * sin(this->getAngle() + 180)));
-				vel.setVelocityY(vel.getVelocityY() + ((5000) * cos(this->getAngle() + 180)));
-				HubbleRight* hubbleRight = new HubbleRight(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 8.0, 0.0);
-				objectList.push_back(hubbleRight);
+				vel.setVelocityX(vel.getVelocityX() + ((5000) * sin(this->getAngle() + 216)));
+				vel.setVelocityY(vel.getVelocityY() + ((5000) * cos(this->getAngle() + 216)));
+
+				HubbleRight* hRight = new HubbleRight(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 6.0, 0.0);
+
+				objectList.push_back(hRight);
 			}
+
 			{
 				Position pt = this->getPosition();
-				pt.addPixelsX(((4) * sin(this->getAngle() + 280)));
-				pt.addPixelsY(((4) * cos(this->getAngle() + 270)));
+				pt.addPixelsX(((6) * sin(this->getAngle() + 72)));
+				pt.addPixelsY(((6) * cos(this->getAngle() + 72)));
 				Velocity vel;
 				vel.setVelocityX(this->getVelocityX());
 				vel.setVelocityY(this->getVelocityY());
-				vel.setVelocityX(vel.getVelocityX() + ((5000) * sin(this->getAngle() + 270)));
-				vel.setVelocityY(vel.getVelocityY() + ((5000) * cos(this->getAngle() + 270)));
-				HubbleComputer* hubbleComputer = new HubbleComputer(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 7.0, 0.0);
-				objectList.push_back(hubbleComputer);
+				vel.setVelocityX(vel.getVelocityX() + ((5000) * sin(this->getAngle() + 72)));
+				vel.setVelocityY(vel.getVelocityY() + ((5000) * cos(this->getAngle() + 72)));
+
+				HubbleLeft* hLeft = new HubbleLeft(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 2.0, 0.0);
+				objectList.push_back(hLeft);
 			}
-			return objectList;			
+			return objectList;
 		}
+
 
 	private:
 		const ObjectType type = HUBBLE;
