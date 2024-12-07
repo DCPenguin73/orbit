@@ -55,7 +55,7 @@ void Sim::reset()
 	Ship* ship = new Ship(-60000000.0, 60000000.0, 0.0, -2000.0, 0.0, 10.0, 0.0);  // corect position
 	//Ship* ship = new Ship(0.0, 30000000.0, 0.0, 0.0, 0.0, 10.0, 0.0);
 
-	Earth* earth = new Earth(0.0,0.0,0.0,0.0,0.0,6378000.0,earthRotation);
+	Earth* earth = new Earth(0.0,0.0,0.0,0.0,0.0,6378000000000.0,earthRotation);
 
 	objects.push_back(ship);
 	objects.push_back(gps1);
@@ -100,9 +100,27 @@ void Sim::draw(ogstream& gout)
 	{
 		star.draw(gout);
 	}
+	for (auto it = objects.begin(); it != objects.end(); it++ )
+	{
+		if ((*it)->getType()!= EARTH)
+			(*it)->draw(gout);
+		
+	}
+	for (auto it = objects.begin(); it != objects.end(); it++)
+	{
+		if ((*it)->getType() == EARTH)
+			(*it)->draw(gout);
+	}
+}
+
+/******************************************
+ * SIM : ADVANCE
+ * Advance everything on the screen
+ *****************************************/
+void Sim::advance()
+{
 	for (auto it = objects.begin(); it != objects.end(); )
 	{
-		(*it)->draw(gout);
 		if ((*it)->getType() == PROJECTILE)
 		{
 			Projectile* projectile = dynamic_cast<Projectile*>(*it);
@@ -110,6 +128,7 @@ void Sim::draw(ogstream& gout)
 			{
 				it = objects.erase(it);
 				count--;
+				//break;
 			}
 			else
 			{
@@ -130,47 +149,89 @@ void Sim::draw(ogstream& gout)
 				++it;
 			}
 		}
-		else
-		{
-			++it;
-		}
+		else 
+			it++;
 	}
 
-}
 
-/******************************************
- * SIM : ADVANCE
- * Advance everything on the screen
- *****************************************/
-void Sim::advance()
-{
-	for (auto it = objects.begin(); it != objects.end(); )
-	{
-		auto it2 = it;
-		for (it2++; it2 != objects.end(); )
-		{
+
+	for (auto it = objects.begin(); it != objects.end(); ) {
+		auto it2 = std::next(it);
+		bool erasedOuter = false;
+		for (; it2 != objects.end(); ) {
+			if (((*it)->getType() == EARTH))
+			{
+				double x0 = (*it2)->getPosition().getMetersX();
+				double y0 = (*it2)->getPosition().getMetersY();
+				const double earthRadius = 6378000.0;
+				const double height = (std::sqrt((x0 * x0) + (y0 * y0)));
+				if (height < 6378000.0)
+				{
+					if ((*it2)->getType() == PROJECTILE)
+					{
+						count--;
+					}
+					it2 = objects.erase(it2);
+					if (!erasedOuter) {
+						if ((*it)->getType() == PROJECTILE)
+						{
+							count--;
+						}
+						break;
+					}
+				}
+
+			}
+			if (((*it2)->getType() == EARTH))
+			{
+				double x0 = (*it)->getPosition().getMetersX();
+				double y0 = (*it)->getPosition().getMetersY();
+				const double earthRadius = 6378000.0;
+				const double height = (std::sqrt((x0 * x0) + (y0 * y0)));
+				if (height < 6378000.0)
+				{
+					if (!erasedOuter) {
+						if ((*it)->getType() == PROJECTILE)
+						{
+							count--;
+						}
+						it = objects.erase(it);
+						erasedOuter = true;
+						break;
+					}
+				}
+			}
 			double dx = (*it)->getX() - (*it2)->getX();
 			double dy = (*it)->getY() - (*it2)->getY();
-			double dr = ((*it)->getRadius() + (*it2)->getRadius()) * 315;
-			if (dx * dx + dy * dy <= dr * dr)
+			double dr = ((*it)->getRadius() + (*it2)->getRadius()) * 130000;
+
+
+			if ((dx * dx) + (dy * dy) <= (dr * dr)) 
 			{
-				it = objects.erase(it);
+				if ((*it2)->getType() == PROJECTILE)
+				{
+					count--;
+				}
 				it2 = objects.erase(it2);
+				if (!erasedOuter) {
+					if ((*it)->getType() == PROJECTILE)
+					{
+						count--;
+					}
+					it = objects.erase(it);
+					erasedOuter = true;
+					break;
+				}
 			}
-			else
-			{
+			else {
 				++it2;
 			}
 		}
-	
-			
-		
-		if (it != objects.end())
-		{
+		if (!erasedOuter) {
 			++it;
 		}
-
 	}
+
 	for (Object* obj : objects) {
 
 		obj->advance();
