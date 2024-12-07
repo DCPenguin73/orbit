@@ -7,11 +7,11 @@
  *    Everything we need to know about a location on the screen.
  ************************************************************************/
 
-#include "position.h"
+#include "Position.h"
 #include <cassert>
 
 
-Position::Position(double x, double y) : x(0.0), y(0.0)
+Position::Position(double x, double y) : x(0.0), y(0.0) //hi
 {
    setMetersX(x);
    setMetersY(y);

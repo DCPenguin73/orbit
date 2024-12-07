@@ -40,7 +40,7 @@
 #endif // _WIN32
 
 #include "uiInteract.h"
-#include "position.h"
+#include "Position.h"
 
 using namespace std;
 

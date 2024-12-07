@@ -7,8 +7,13 @@
  *    The test runner for all the unit tests
  ************************************************************************/
 
-#include "test.h"
-#include "testPosition.h"
+#include "Test.h"
+#include "TestPosition.h"
+#include "TestVelocity.h"
+#include "TestStar.h"
+#include "TestEarth.h"
+#include "TestObject.h"
+#include "TestShip.h"
 
 #ifdef _WIN32
 #include <windows.h>
@@ -30,4 +35,9 @@ void testRunner()
 #endif // _WIN32
 
    TestPosition().run();
+   TestVelocity().run();
+   TestStar().run();
+   TestObject().run();
+   TestShip().run();
+   TestEarth().run();
 }

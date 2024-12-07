@@ -17,6 +17,8 @@
 class TestPosition;
 class Acceleration;
 class Velocity;
+class TestObject;
+class TestShip;
 
 /*********************************************
  * Position
@@ -26,7 +28,8 @@ class Position
 {
 public:
    friend TestPosition;
-   
+   friend TestObject;
+   friend TestShip;
    // constructors
    Position()            : x(0.0), y(0.0)  {}
    Position(double x, double y);
@@ -38,11 +41,6 @@ public:
    double getMetersY()       const { return y;                    }
    double getPixelsX()       const { return x / metersFromPixels; }
    double getPixelsY()       const { return y / metersFromPixels; }
-   double getVelocityX()     const { return dx; }
-   double getVelocityY()     const { return dy; }
-   double getAccelerationX()  const { return ddx; }
-   double getAccelerationY()  const { return ddy; }
-
 
    // setters
    void setMeters(double xMeters, double yMeters) {x = xMeters; y = yMeters; }
@@ -54,11 +52,6 @@ public:
    void addMetersY(double dyMeters)      { setMetersY(getMetersY() + dyMeters);     }
    void addPixelsX(double dxPixels)      { setPixelsX(getPixelsX() + dxPixels);     }
    void addPixelsY(double dyPixels)      { setPixelsY(getPixelsY() + dyPixels);     }
-   void setVelocity(double dx, double dy) { this->dx = dx; this->dy = dy; }
-   void setVelocityX(double dx) { this->dx = dx; }
-   void setVelocityY(double dy) { this->dy = dy; }
-   void setAccelerationX(double ddx) { this->ddx = ddx; }
-   void setAccelerationY(double ddy) { this->ddy = ddy; }
 
    // deal with the ratio of meters to pixels
    void setZoom(double metersFromPixels)
@@ -70,10 +63,6 @@ public:
 private:
    double x;                 // horizontal position
    double y;                 // vertical position
-   double dx;                // horizontal velocity
-   double dy;                // vertical velocity
-   double ddx = 0;			 // acceleration
-   double ddy = 0;			 // acceleration
    static double metersFromPixels;
 };
 
@@ -103,5 +92,3 @@ struct PT
    double dx;
    double dy;
 };
-
-
