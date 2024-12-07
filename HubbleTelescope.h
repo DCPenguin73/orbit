@@ -38,8 +38,9 @@ class HubbleTelescope : public Part
 
 		// other functions
 		void draw(ogstream& gout) { gout.drawHubbleTelescope(this->getPosition(), this->getAngle()); }
-		ObjectType getType() const { return HUBBLE_TELESCOPE; }  // frag amount: 3
-		std::list<Object*> collide() const
+		ObjectType getType() const { return HUBBLE_TELESCOPE; }
+
+		std::list<Object*> collide()
 		{
 			std::list<Object*> objects;
 			{

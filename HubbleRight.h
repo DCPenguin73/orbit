@@ -43,7 +43,7 @@ public:
 	// other functions
 	void draw(ogstream& gout) { gout.drawHubbleRight(this->getPosition(), this->getAngle()); }
 	ObjectType getType() const { return HUBBLE_RIGHT; }   // frag amount: 2
-	std::list<Object*> collide() const
+	std::list<Object*> collide()
 	{
 		std::list<Object*> objects;
 		{
