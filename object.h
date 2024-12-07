@@ -62,6 +62,7 @@ public:
 	virtual void draw(ogstream& gout) = 0;
 	virtual void advance();
 	virtual ObjectType getType() const = 0;
+	//virtual std::list<Object*> collide() const = 0;
 
 protected:
 	Position position;
