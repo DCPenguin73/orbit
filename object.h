@@ -64,6 +64,7 @@ public:
 	virtual void advance();
 	virtual ObjectType getType() const = 0;
 	virtual std::list<Object*> collide() { std::list<Object*> object; return object; };
+
 protected:
 	Position position;
 	Velocity velocity;

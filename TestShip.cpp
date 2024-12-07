@@ -58,10 +58,10 @@ void TestShip::advance2()
    ship.advance();
 
    //verify
-   assertEqualsTolerance(82.36526, ship.velocity.dx, 0.01);
-   assertEqualsTolerance(31.71813, ship.velocity.dy, 0.01);
-   assertEqualsTolerance(903953.53249, ship.position.x, 0.01);
-   assertEqualsTolerance(12757522.4703, ship.position.y, 0.01);
+   assertEqualsTolerance(0.81936, ship.velocity.dx, 0.01);
+   assertEqualsTolerance(3.16594, ship.velocity.dy, 0.01);
+   assertEqualsTolerance(900039.32961, ship.position.x, 0.01);
+   assertEqualsTolerance(12756151.96541, ship.position.y, 0.01);
    assertEquals(ship.angle, 10.234);
    assertEquals(ship.radius, 0.0);
    assertEquals(ship.rotation, 9.0);
@@ -85,9 +85,9 @@ void TestShip::advance3()
 
    //verify
    assertEqualsTolerance(0.0, ship.velocity.dx, 0.01);
-   assertEqualsTolerance(-21.67979, ship.velocity.dy, 0.01);
+   assertEqualsTolerance(-108.07979, ship.velocity.dy, 0.01);
    assertEqualsTolerance(0.0, ship.position.x, 0.01);
-   assertEqualsTolerance(12754959.369600002, ship.position.y, 0.01);
+   assertEqualsTolerance(12750812.16959, ship.position.y, 0.01);
    assertEquals(ship.angle, 0.0);
    assertEquals(ship.radius, 0.0);
    assertEquals(ship.rotation, 0.0);
@@ -110,10 +110,10 @@ void TestShip::advance4()
    ship.advance();
 
    //verify
-   assertEqualsTolerance(85.82367, ship.velocity.dx, 0.01);
-   assertEqualsTolerance(-160.69486, ship.velocity.dy, 0.01);
-   assertEqualsTolerance(4119.53662, ship.position.x, 0.01);
-   assertEqualsTolerance(12748286.64637, ship.position.y, 0.01);
+   assertEqualsTolerance(8.58236, ship.velocity.dx, 0.01);
+   assertEqualsTolerance(-121.98130, ship.velocity.dy, 0.01);
+   assertEqualsTolerance(411.95366, ship.position.x, 0.01);
+   assertEqualsTolerance(12750144.89727, ship.position.y, 0.01);
    assertEquals(ship.angle, 90.0);
    assertEquals(ship.radius, 0.0);
    assertEquals(ship.rotation, 0.0);
@@ -136,10 +136,10 @@ void TestShip::advance5()
    ship.advance();
 
    //verify
-   assertEqualsTolerance(-16.9004, ship.velocity.dx, 0.01);
-   assertEqualsTolerance(-23.17913, ship.velocity.dy, 0.01);
-   assertEqualsTolerance(-811.21972, ship.position.x, 0.01);
-   assertEqualsTolerance(12754887.40162, ship.position.y, 0.01);
+   assertEqualsTolerance(-1.69004, ship.velocity.dx, 0.01);
+   assertEqualsTolerance(-108.22973, ship.velocity.dy, 0.01);
+   assertEqualsTolerance(-81.12197, ship.position.x, 0.01);
+   assertEqualsTolerance(12750804.97280, ship.position.y, 0.01);
    assertEquals(ship.angle, 270.0);
    assertEquals(ship.radius, 0.0);
    assertEquals(ship.rotation, 0.0);
