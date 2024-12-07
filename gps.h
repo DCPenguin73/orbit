@@ -38,52 +38,52 @@ class Gps : public Satellite
 
 			{
 				Position pt = this->getPosition();
-				pt.addPixelsX(((30) * sin(this->getAngle())));
-				pt.addPixelsY(((30) * cos(this->getAngle())));
+				pt.addPixelsX(((11) * sin(this->getAngle())));
+				pt.addPixelsY(((11) * cos(this->getAngle())));
 				Velocity vel;
 				vel.setVelocityX(this->getVelocityX());
 				vel.setVelocityY(this->getVelocityY());
 				vel.setVelocityX(vel.getVelocityX() + ((2000) * sin(this->getAngle())));
 				vel.setVelocityY(vel.getVelocityY() + ((2000) * cos(this->getAngle())));
 
-				GPSCenter* GPSCenter1 = new GPSCenter(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 6.0, 0.0);
+				GPSCenter* GPSCenter1 = new GPSCenter(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 7.0, 0.0);
 				objectList.push_back(GPSCenter1);
 			}
 
 			{
 				Position pt = this->getPosition();
-				pt.addPixelsX(((30) * sin(this->getAngle() + 144)));
-				pt.addPixelsY(((30) * cos(this->getAngle() + 144)));
+				pt.addPixelsX(((12) * sin(this->getAngle() + 144)));
+				pt.addPixelsY(((12) * cos(this->getAngle() + 144)));
 				Velocity vel;
 				vel.setVelocityX(this->getVelocityX());
 				vel.setVelocityY(this->getVelocityY());
 				vel.setVelocityX(vel.getVelocityX() + ((2000) * sin(this->getAngle() + 144)));
 				vel.setVelocityY(vel.getVelocityY() + ((2000) * cos(this->getAngle() + 144)));
 
-				GPSLeft* GPSLeft1 = new GPSLeft(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 6.0, 0.0);
+				GPSLeft* GPSLeft1 = new GPSLeft(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 8.0, 0.0);
 
 				objectList.push_back(GPSLeft1);
 			}
 
 			{
 				Position pt = this->getPosition();
-				pt.addPixelsX(((30) * sin(this->getAngle() + 216)));
-				pt.addPixelsY(((30) * cos(this->getAngle() + 216)));
+				pt.addPixelsX(((12) * sin(this->getAngle() + 216)));
+				pt.addPixelsY(((12) * cos(this->getAngle() + 216)));
 				Velocity vel;
 				vel.setVelocityX(this->getVelocityX());
 				vel.setVelocityY(this->getVelocityY());
 				vel.setVelocityX(vel.getVelocityX() + ((2000) * sin(this->getAngle() + 216)));
 				vel.setVelocityY(vel.getVelocityY() + ((2000) * cos(this->getAngle() + 216)));
 
-				GPSRight* GPSRight1 = new GPSRight(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 6.0, 0.0);
+				GPSRight* GPSRight1 = new GPSRight(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 8.0, 0.0);
 
 				objectList.push_back(GPSRight1);
 			}
 
 			{
 				Position pt = this->getPosition();
-				pt.addPixelsX(((30) * sin(this->getAngle() + 72)));
-				pt.addPixelsY(((30) * cos(this->getAngle() + 72)));
+				pt.addPixelsX(((6) * sin(this->getAngle() + 72)));
+				pt.addPixelsY(((6) * cos(this->getAngle() + 72)));
 				Velocity vel;
 				vel.setVelocityX(this->getVelocityX());
 				vel.setVelocityY(this->getVelocityY());
@@ -96,8 +96,8 @@ class Gps : public Satellite
 
 			{
 				Position pt = this->getPosition();
-				pt.addPixelsX(((30) * sin(this->getAngle() + 288)));
-				pt.addPixelsY(((30) * cos(this->getAngle() + 288)));
+				pt.addPixelsX(((6) * sin(this->getAngle() + 288)));
+				pt.addPixelsY(((6) * cos(this->getAngle() + 288)));
 				Velocity vel;
 				vel.setVelocityX(this->getVelocityX());
 				vel.setVelocityY(this->getVelocityY());

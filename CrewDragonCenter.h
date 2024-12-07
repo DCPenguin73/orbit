@@ -49,8 +49,8 @@ public:
 		std::list<Object*> objects;
 		{
 			Position pt = this->getPosition();
-			pt.addPixelsX(((19) * sin(this->getAngle())));
-			pt.addPixelsY(((19) * cos(this->getAngle())));
+			pt.addPixelsX(((6) * sin(this->getAngle())));
+			pt.addPixelsY(((6) * cos(this->getAngle())));
 			Velocity vel;
 			vel.setVelocityX(this->getVelocityX());
 			vel.setVelocityY(this->getVelocityY());
@@ -62,8 +62,8 @@ public:
 		}
 		{
 			Position pt = this->getPosition();
-			pt.addPixelsX(((19) * sin(this->getAngle()+90)));
-			pt.addPixelsY(((19) * cos(this->getAngle()+90)));
+			pt.addPixelsX(((6) * sin(this->getAngle()+90)));
+			pt.addPixelsY(((6) * cos(this->getAngle()+90)));
 			Velocity vel;
 			vel.setVelocityX(this->getVelocityX());
 			vel.setVelocityY(this->getVelocityY());
@@ -74,8 +74,8 @@ public:
 		}
 		{
 			Position pt = this->getPosition();
-			pt.addPixelsX(((19) * sin(this->getAngle()+180)));
-			pt.addPixelsY(((19) * cos(this->getAngle()+180)));
+			pt.addPixelsX(((6) * sin(this->getAngle()+180)));
+			pt.addPixelsY(((6) * cos(this->getAngle()+180)));
 			Velocity vel;
 			vel.setVelocityX(this->getVelocityX());
 			vel.setVelocityY(this->getVelocityY());
@@ -86,8 +86,8 @@ public:
 		}
 		{
 			Position pt = this->getPosition();
-			pt.addPixelsX(((19) * sin(this->getAngle()+270)));
-			pt.addPixelsY(((19) * cos(this->getAngle()+270)));
+			pt.addPixelsX(((6) * sin(this->getAngle()+270)));
+			pt.addPixelsY(((6) * cos(this->getAngle()+270)));
 			Velocity vel;
 			vel.setVelocityX(this->getVelocityX());
 			vel.setVelocityY(this->getVelocityY());

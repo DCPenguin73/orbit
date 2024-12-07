@@ -201,12 +201,12 @@ void Sim::advance()
 					}
 				}
 			}
-			double dx = (*it)->getX() - (*it2)->getX();
-			double dy = (*it)->getY() - (*it2)->getY();
-			double dr = ((*it)->getRadius() + (*it2)->getRadius()) * 130000;
+
+			double distance = computeDistance((*it)->getPosition(), (*it2)->getPosition());
+			double dr = ((((*it)->getRadius())*40000) + (((*it2)->getRadius())*40000));
 
 
-			if ((dx * dx) + (dy * dy) <= (dr * dr)) 
+			if (distance <= dr) 
 			{
 				if ((*it2)->getType() == PROJECTILE)
 				{
