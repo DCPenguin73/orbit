@@ -36,6 +36,5 @@ class Part : public Object
 		this->setRotation(rotation); }
 		
 		// other functions
-		virtual void breakApart() = 0;
 		
 };

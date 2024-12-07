@@ -15,6 +15,7 @@
 #include "Velocity.h"
 #include "uiDraw.h"
 #include "ObjectType.h"
+#include <list>
 
 class TestObject;
 class Position;
@@ -62,7 +63,7 @@ public:
 	virtual void draw(ogstream& gout) = 0;
 	virtual void advance();
 	virtual ObjectType getType() const = 0;
-
+	virtual std::list<Object*> collide() { std::list<Object*> object; return object; };
 protected:
 	Position position;
 	Velocity velocity;
