@@ -13,8 +13,10 @@
 #include "uiDraw.h"
 #include "Object.h"
 #include "ObjectType.h"
+#include "Fragment.h"
 #include "Part.h"
 #include "Fragment.h"
+
 
 class TestStarLinkBody;
 class Position;
@@ -45,6 +47,7 @@ public:
 	void draw(ogstream& gout) { gout.drawStarlinkBody(this->getPosition(), this->getAngle()); }
 	ObjectType getType() const { return STARLINK_BODY; }
 	std::list<Object*> collide()
+
 	{
 		std::list<Object*> objects;
 		double angle = this->getAngle();

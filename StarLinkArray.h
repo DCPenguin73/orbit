@@ -11,6 +11,7 @@
 #include <cmath>
 #include "Position.h"
 #include "uiDraw.h"
+#include "Fragment.h"
 #include "Object.h"
 #include "ObjectType.h"
 #include "Part.h"
