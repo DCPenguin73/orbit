@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CrewDragonCenter.h" />
     <ClCompile Include="Lab07.cpp" />
     <ClCompile Include="object.cpp" />
     <ClCompile Include="position.cpp" />
@@ -152,6 +153,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CrewDragon.h" />
+    <ClInclude Include="CrewDragonLeft.h" />
+    <ClInclude Include="CrewDragonRight.h" />
     <ClInclude Include="Earth.h" />
     <ClInclude Include="Fragment.h" />
     <ClInclude Include="Gps.h" />
@@ -161,6 +164,7 @@
     <ClInclude Include="Hubble.h" />
     <ClInclude Include="HubbleComputer.h" />
     <ClInclude Include="HubbleLeft.h" />
+    <ClInclude Include="HubbleRight.h" />
     <ClInclude Include="HubbleTelescope.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectType.h" />
@@ -173,6 +177,8 @@
     <ClInclude Include="Sputnik.h" />
     <ClInclude Include="Star.h" />
     <ClInclude Include="StarLink.h" />
+    <ClInclude Include="StarLinkArray.h" />
+    <ClInclude Include="StarLinkBody.h" />
     <ClInclude Include="Test.h" />
     <ClInclude Include="TestEarth.h" />
     <ClInclude Include="TestObject.h" />

@@ -41,7 +41,8 @@ void Sim::reset()
 	const double frameRate = 30.0;
 	double earthRotation = (-((2 * M_PI) / frameRate) * (timeDilation / secondsDay));
 	Gps* gps1 = new Gps(0.0, 26560000.0, -3880.0, 0.0, 1.5, 12.0, (2.0 * earthRotation));
-	Gps* gps2 = new Gps(23001634.72, 13280000.0, -1940.00, 3360.18, 2.6, 12.0, (2.0 * earthRotation));
+	//Gps* gps2 = new Gps(23001634.72, 13280000.0, -1940.00, 3360.18, 2.6, 12.0, (2.0 * earthRotation));
+	Gps* gpstest = new Gps(23001634.72, 13280000.0, 1940.00, -3360.18, 2.6, 12.0, (2.0 * earthRotation));
 	Gps* gps3 = new Gps(23001634.72, -13280000.0, 1940.00, 3360.18, -2.6, 12.0, (2.0 * earthRotation));
 	Gps* gps4 = new Gps(0.0, -26560000.0, 3880.0, 0.0, -1.5, 12.0, (2.0 * earthRotation));
 	Gps* gps5 = new Gps(-23001634.72, -13280000.0, 1940.00, -3360.1, -0.5, 12.0, (2.0 * earthRotation));
@@ -58,7 +59,8 @@ void Sim::reset()
 
 	objects.push_back(ship);
 	objects.push_back(gps1);
-	objects.push_back(gps2);
+	//objects.push_back(gps2);
+	objects.push_back(gpstest);
 	objects.push_back(gps3);
 	objects.push_back(gps4);
 	objects.push_back(gps5);
@@ -142,6 +144,33 @@ void Sim::draw(ogstream& gout)
  *****************************************/
 void Sim::advance()
 {
+	for (auto it = objects.begin(); it != objects.end(); )
+	{
+		auto it2 = it;
+		for (it2++; it2 != objects.end(); )
+		{
+			double dx = (*it)->getX() - (*it2)->getX();
+			double dy = (*it)->getY() - (*it2)->getY();
+			double dr = ((*it)->getRadius() + (*it2)->getRadius()) * 315;
+			if (dx * dx + dy * dy <= dr * dr)
+			{
+				it = objects.erase(it);
+				it2 = objects.erase(it2);
+			}
+			else
+			{
+				++it2;
+			}
+		}
+	
+			
+		
+		if (it != objects.end())
+		{
+			++it;
+		}
+
+	}
 	for (Object* obj : objects) {
 
 		obj->advance();
