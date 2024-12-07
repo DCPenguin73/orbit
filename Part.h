@@ -34,7 +34,4 @@ class Part : public Object
 		this->setRadius(radius); this->setRotation(rotation); }
 		Part(Position pos, Velocity vel, double angle, double radius, double rotation) { this->setPosition(pos); this->setVelocity(vel); this->setAngle(angle); this->setRadius(radius); 
 		this->setRotation(rotation); }
-		
-		// other functions
-		
 };
