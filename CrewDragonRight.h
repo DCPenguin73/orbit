@@ -39,6 +39,8 @@ public:
 		this->setPosition(pos); this->setVelocity(vel); this->setAngle(angle); this->setRadius(radius);
 		this->setRotation(rotation);
 	}
+	ObjectType getType() const { return CREWDRAGON_RIGHT; }
+	void draw(ogstream& gout) { gout.drawCrewDragonRight(this->getPosition(), this->getAngle()); }
 
 	// other functions
 	void breakApart() { return; }
