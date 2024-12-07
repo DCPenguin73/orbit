@@ -15,6 +15,7 @@
 #include "Object.h"
 #include "ObjectType.h"
 #include "Part.h"
+#include "Fragment.h"
 
 class TestStarLinkArray;
 class Position;
@@ -44,7 +45,7 @@ public:
 	// other functions
 	void draw(ogstream& gout) { gout.drawStarlinkArray(this->getPosition(), this->getAngle()); }
 	ObjectType getType() const { return STARLINK_ARRAY; }
-	std::list<Object*> collide() const
+	std::list<Object*> collide()
 	{
 		std::list<Object*> objects;
 		double angle = this->getAngle();

@@ -14,6 +14,7 @@
 #include "Object.h"
 #include "ObjectType.h"
 #include "Part.h"
+#include "Fragment.h"
 
 class TestGPSCenter;
 class Position;
@@ -35,7 +36,50 @@ class GPSCenter : public Part
 		this->setAngle(angle); this->setRadius(radius); this->setRotation(rotation); }
 		GPSCenter(Position pos, Velocity vel, double angle, double radius, double rotation) { this->setPosition(pos); this->setVelocity(vel); this->setAngle(angle); this->setRadius(radius); 
 		this->setRotation(rotation); }
+		ObjectType getType() const { return GPS_CENTER; }
+		void draw(ogstream& gout) { gout.drawGPSCenter(this->getPosition(), this->getAngle()); }
+		std::list<Object*> collide()
+		{
+			std::list<Object*> objects;
+			{
+				Position pt = this->getPosition();
+				pt.addPixelsX(((30) * sin(this->getAngle())));
+				pt.addPixelsY(((30) * cos(this->getAngle())));
+				Velocity vel;
+				vel.setVelocityX(this->getVelocityX());
+				vel.setVelocityY(this->getVelocityY());
+				vel.setVelocityX(vel.getVelocityX() + ((4000) * sin(this->getAngle())));
+				vel.setVelocityY(vel.getVelocityY() + ((4000) * cos(this->getAngle())));
 
-		// other functions
-		void breakApart() { return; }
+				Fragment* fragment1 = new Fragment(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 2.0, 0.0);
+				objects.push_back(fragment1);
+			}
+			{
+				Position pt = this->getPosition();
+				pt.addPixelsX(((30) * sin(this->getAngle() + 120)));
+				pt.addPixelsY(((30) * cos(this->getAngle() + 120)));
+				Velocity vel;
+				vel.setVelocityX(this->getVelocityX());
+				vel.setVelocityY(this->getVelocityY());
+				vel.setVelocityX(vel.getVelocityX() + ((4000) * sin(this->getAngle() + 120)));
+				vel.setVelocityY(vel.getVelocityY() + ((4000) * cos(this->getAngle() + 120)));
+				Fragment* fragment2 = new Fragment(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), (this->getAngle() + 30), 2.0, 0.0);
+				objects.push_back(fragment2);
+			}
+			{
+				Position pt = this->getPosition();
+				pt.addPixelsX(((30) * sin(this->getAngle() + 240)));
+				pt.addPixelsY(((30) * cos(this->getAngle() + 240)));
+				Velocity vel;
+				vel.setVelocityX(this->getVelocityX());
+				vel.setVelocityY(this->getVelocityY());
+				vel.setVelocityX(vel.getVelocityX() + ((4000) * sin(this->getAngle() + 240)));
+				vel.setVelocityY(vel.getVelocityY() + ((4000) * cos(this->getAngle() + 240)));
+				Fragment* fragment3 = new Fragment(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), (this->getAngle() - 30), 2.0, 0.0);
+				objects.push_back(fragment3);
+			}
+			return objects;
+		}
+
+
 };

@@ -42,5 +42,47 @@ public:
 	ObjectType getType() const { return CREWDRAGON_LEFT; }
 	void draw(ogstream& gout) { gout.drawCrewDragonLeft(this->getPosition(), this->getAngle()); }
 	// other functions
-	void breakApart() { return; }
+	std::list<Object*> collide()
+	{
+		std::list<Object*> objects;
+		{
+			Position pt = this->getPosition();
+			pt.addPixelsX(((19) * sin(this->getAngle())));
+			pt.addPixelsY(((19) * cos(this->getAngle())));
+			Velocity vel;
+			vel.setVelocityX(this->getVelocityX());
+			vel.setVelocityY(this->getVelocityY());
+			vel.setVelocityX(vel.getVelocityX() + ((4000) * sin(this->getAngle())));
+			vel.setVelocityY(vel.getVelocityY() + ((4000) * cos(this->getAngle())));
+
+			Fragment* fragment1 = new Fragment(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 2.0, 0.0);
+			objects.push_back(fragment1);
+		}
+		{
+			Position pt = this->getPosition();
+			pt.addPixelsX(((19) * sin(this->getAngle() + 120)));
+			pt.addPixelsY(((19) * cos(this->getAngle() + 120)));
+			Velocity vel;
+			vel.setVelocityX(this->getVelocityX());
+			vel.setVelocityY(this->getVelocityY());
+			vel.setVelocityX(vel.getVelocityX() + ((4000) * sin(this->getAngle() + 120)));
+			vel.setVelocityY(vel.getVelocityY() + ((4000) * cos(this->getAngle() + 120)));
+			Fragment* fragment2 = new Fragment(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), (this->getAngle() + 30), 2.0, 0.0);
+			objects.push_back(fragment2);
+		}
+		{
+			Position pt = this->getPosition();
+			pt.addPixelsX(((19) * sin(this->getAngle() + 240)));
+			pt.addPixelsY(((19) * cos(this->getAngle() + 240)));
+			Velocity vel;
+			vel.setVelocityX(this->getVelocityX());
+			vel.setVelocityY(this->getVelocityY());
+			vel.setVelocityX(vel.getVelocityX() + ((4000) * sin(this->getAngle() + 240)));
+			vel.setVelocityY(vel.getVelocityY() + ((4000) * cos(this->getAngle() + 240)));
+			Fragment* fragment3 = new Fragment(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), (this->getAngle() - 30), 2.0, 0.0);
+			objects.push_back(fragment3);
+		}
+		return objects;
+	}
+
 };
