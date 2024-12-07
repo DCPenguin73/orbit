@@ -37,7 +37,8 @@ class Earth : public Object
 public:
 	// constructors
 	Earth() : Object(), angle(0.0), radius(6378000.0), rotation(rotation) {}
-	Earth(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); this->angle = angle; this->radius = radius; this->rotation = rotation; }
+	Earth(double x, double y, double dx, double dy, double angle, double radius, double rotation) { position.setMetersX(x); position.setMetersY(y); velocity.setVelocityX(dx); velocity.setVelocityY(dy); 
+	this->angle = angle; this->radius = radius; this->rotation = rotation; }
 	~Earth() {}
 
 	// getters

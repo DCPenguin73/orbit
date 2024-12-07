@@ -1,10 +1,10 @@
 /****************************************************
  * Header File:
- *    GPSRight : The representation of the GPSRight
+ *    HubbleLeft : The representation of the HubbleLeft
  * Author:
  *    Daniel Carr
  * Summary:
- *    Everything we need to know about the GPSRights on the screen.
+ *    Everything we need to know about the HubbleLeft on the screen.
 ****************************************************/
 #pragma once
 #include <iostream>
@@ -15,25 +15,25 @@
 #include "ObjectType.h"
 #include "Part.h"
 
-class TestGPSRight;
+class TestHubbleLeft;
 class Position;
 class Velocity;
 class uiDraw;
-
+	
 /*********************************************
- * GPSRight
- * A single GPSRight on the field in Meters
+ * HubbleLeft
+ * A single HubbleLeft on the field in Meters
  *********************************************/
-class GPSRight : public Part
+class HubbleLeft : public Part
 {
-	friend TestGPSRight;
+	friend TestHubbleLeft;
 
 	public:
 		// constructors
-		GPSRight() : Part() {}
-		GPSRight(double x, double y, double dx, double dy, double angle, double radius, double rotation) { this->setX(x); this->setY(y); this->setVelocityX(dx); this->setVelocityY(dy); 
+		HubbleLeft() : Part() {}
+		HubbleLeft(double x, double y, double dx, double dy, double angle, double radius, double rotation) { this->setX(x); this->setY(y); this->setVelocityX(dx); this->setVelocityY(dy); 
 		this->setAngle(angle); this->setRadius(radius); this->setRotation(rotation); }
-		GPSRight(Position pos, Velocity vel, double angle, double radius, double rotation) { this->setPosition(pos); this->setVelocity(vel); this->setAngle(angle); this->setRadius(radius); 
+		HubbleLeft(Position pos, Velocity vel, double angle, double radius, double rotation) { this->setPosition(pos); this->setVelocity(vel); this->setAngle(angle); this->setRadius(radius); 
 		this->setRotation(rotation); }
 
 		// other functions

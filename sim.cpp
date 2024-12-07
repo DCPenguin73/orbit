@@ -25,6 +25,7 @@
 #include <random>
 #include "Ship.h"
 #include "Projectile.h"
+#include "Fragment.h"
 
 class Object;
  /******************************************
@@ -40,7 +41,8 @@ void Sim::reset()
 	const double frameRate = 30.0;
 	double earthRotation = (-((2 * M_PI) / frameRate) * (timeDilation / secondsDay));
 	Gps* gps1 = new Gps(0.0, 26560000.0, -3880.0, 0.0, 1.5, 12.0, (2.0 * earthRotation));
-	Gps* gps2 = new Gps(23001634.72, 13280000.0, -1940.00, 3360.18, 2.6, 12.0, (2.0 * earthRotation));
+	//Gps* gps2 = new Gps(23001634.72, 13280000.0, -1940.00, 3360.18, 2.6, 12.0, (2.0 * earthRotation));
+	Gps* gpstest = new Gps(23001634.72, 13280000.0, 1940.00, -3360.18, 2.6, 12.0, (2.0 * earthRotation));
 	Gps* gps3 = new Gps(23001634.72, -13280000.0, 1940.00, 3360.18, -2.6, 12.0, (2.0 * earthRotation));
 	Gps* gps4 = new Gps(0.0, -26560000.0, 3880.0, 0.0, -1.5, 12.0, (2.0 * earthRotation));
 	Gps* gps5 = new Gps(-23001634.72, -13280000.0, 1940.00, -3360.1, -0.5, 12.0, (2.0 * earthRotation));
@@ -57,7 +59,8 @@ void Sim::reset()
 
 	objects.push_back(ship);
 	objects.push_back(gps1);
-	objects.push_back(gps2);
+	//objects.push_back(gps2);
+	objects.push_back(gpstest);
 	objects.push_back(gps3);
 	objects.push_back(gps4);
 	objects.push_back(gps5);
@@ -97,23 +100,39 @@ void Sim::draw(ogstream& gout)
 	{
 		star.draw(gout);
 	}
-	for (Object* obj : objects) {
-
-		obj->draw(gout);
-		if (obj->getType() == PROJECTILE)
+	for (auto it = objects.begin(); it != objects.end(); )
+	{
+		(*it)->draw(gout);
+		if ((*it)->getType() == PROJECTILE)
 		{
-			Projectile* projectile = dynamic_cast<Projectile*>(obj);
+			Projectile* projectile = dynamic_cast<Projectile*>(*it);
 			if (projectile->getAge() > 70)
 			{
-				//projectile->~Projectile();
-				/*objects.remove(obj);*/
-				/*objects.remove(projectile);*/
+				it = objects.erase(it);
 				count--;
 			}
 			else
 			{
 				projectile->setAge(projectile->getAge() + 1);
+				++it;
 			}
+		}
+		else if ((*it)->getType() == FRAGMENT)
+		{
+			Fragment* fragment = dynamic_cast<Fragment*>(*it);
+			if (fragment->getAge() > 70)
+			{
+				it = objects.erase(it);
+			}
+			else
+			{
+				fragment->setAge(fragment->getAge() + 1);
+				++it;
+			}
+		}
+		else
+		{
+			++it;
 		}
 	}
 
@@ -125,14 +144,37 @@ void Sim::draw(ogstream& gout)
  *****************************************/
 void Sim::advance()
 {
+	for (auto it = objects.begin(); it != objects.end(); )
+	{
+		auto it2 = it;
+		for (it2++; it2 != objects.end(); )
+		{
+			double dx = (*it)->getX() - (*it2)->getX();
+			double dy = (*it)->getY() - (*it2)->getY();
+			double dr = ((*it)->getRadius() + (*it2)->getRadius()) * 315;
+			if (dx * dx + dy * dy <= dr * dr)
+			{
+				it = objects.erase(it);
+				it2 = objects.erase(it2);
+			}
+			else
+			{
+				++it2;
+			}
+		}
+	
+			
+		
+		if (it != objects.end())
+		{
+			++it;
+		}
+
+	}
 	for (Object* obj : objects) {
 
 		obj->advance();
 	}
-	/*for (Object* obj : objects) {
-
-		obj->advance();
-	}*/
 	for (Star& star : stars)
 	{
 		star.setPhase(star.getPhase() + 1);
@@ -160,24 +202,24 @@ void Sim::handleKeys(const Interface* ui)
 			}
 			if (ui->isLeft())
 			{
-				ship->setRotation(ship->getRotation() - 0.01);
+				ship->setRotation(ship->getRotation() - 0.001);
 			}
 			if (ui->isRight())
 			{
-				ship->setRotation(ship->getRotation() + 0.01);
+				ship->setRotation(ship->getRotation() + 0.001);
 			}
 			if (ui->isSpace())
 			{
 				if (count < 5)
 				{
 					Position pt = ship->getPosition();
-					pt.addPixelsX(-((19) * cos(ship->getAngle() + 90)));
-					pt.addPixelsY(((19) * sin(ship->getAngle() + 90)));
+					pt.addPixelsX(((19) * sin(ship->getAngle())));
+					pt.addPixelsY(((19) * cos(ship->getAngle())));
 					Velocity vel;
 					vel.setVelocityX(ship->getVelocityX());
 					vel.setVelocityY(ship->getVelocityY());
-					vel.setVelocityX(vel.getVelocityX() + (-((9000) * cos(ship->getAngle()+90))));
-					vel.setVelocityY(vel.getVelocityY() + ((9000) * sin(ship->getAngle() + 90)));
+					vel.setVelocityX(vel.getVelocityX() + ((9000) * sin(ship->getAngle())));
+					vel.setVelocityY(vel.getVelocityY() + ((9000) * cos(ship->getAngle())));
 
 					Projectile* projectile = new Projectile(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), ship->getAngle(), 1.0, 0.0);
 					objects.push_back(projectile);
