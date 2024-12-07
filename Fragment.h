@@ -13,6 +13,7 @@
 #include "uiDraw.h"
 #include "Object.h"
 #include "ObjectType.h"
+#include <list>
 
 class TestFragment;
 class Position;
@@ -44,6 +45,10 @@ class Fragment : public Object
 
 		// other functions
 		void draw(ogstream& gout) { gout.drawFragment(this->getPosition(), this->getRotation()); }
+
+		std::list<Object*> collide() { std::list<Object*>  objectList; return objectList; }
+
+
 
 	private:
 		const ObjectType type = FRAGMENT;
