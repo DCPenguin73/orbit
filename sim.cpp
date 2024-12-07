@@ -139,7 +139,7 @@ void Sim::advance()
 		else if ((*it)->getType() == FRAGMENT)
 		{
 			Fragment* fragment = dynamic_cast<Fragment*>(*it);
-			if (fragment->getAge() > 70)
+			if (fragment->getAge() > 100)
 			{
 				it = objects.erase(it);
 			}

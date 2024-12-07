@@ -50,8 +50,9 @@ class StarLink : public Satellite
 			Velocity vel2;
 			vel2.setVelocityX(this->getVelocityX());
 			vel2.setVelocityY(this->getVelocityY());
-			vel2.setVelocityX(vel2.getVelocityX() + ((2000) * sin(this->getAngle() + 180)));
-			vel2.setVelocityY(vel2.getVelocityY() + ((2000) * cos(this->getAngle() + 180)));
+
+			vel2.setVelocityX(vel2.getVelocityX() + ((5000) * sin(this->getAngle() + 180)));
+			vel2.setVelocityY(vel2.getVelocityY() + ((5000) * cos(this->getAngle() + 180)));
 			StarLinkArray* starLinkArray = new StarLinkArray(pt2.getMetersX(), pt2.getMetersY(), vel2.getVelocityX(), vel2.getVelocityY(), angle, 4.0, 0.0);
 			objects.push_back(starLinkArray);
 			Position pt3 = this->getPosition();
@@ -60,9 +61,9 @@ class StarLink : public Satellite
 			Velocity vel3;
 			vel3.setVelocityX(this->getVelocityX());
 			vel3.setVelocityY(this->getVelocityY());
-			vel3.setVelocityX(vel3.getVelocityX() + ((4000) * sin(this->getAngle() + 90)));
-			vel3.setVelocityY(vel3.getVelocityY() + ((4000) * cos(this->getAngle() + 90)));
-			Fragment* fragment = new Fragment(pt3.getMetersX(), pt3.getMetersY(), vel3.getVelocityX(), vel3.getVelocityY(), angle, 1.0, 0.0);
+			vel3.setVelocityX(vel3.getVelocityX() + ((7000) * sin(this->getAngle() + 90)));
+			vel3.setVelocityY(vel3.getVelocityY() + ((7000) * cos(this->getAngle() + 90)));
+			Fragment* fragment = new Fragment(pt3.getMetersX(), pt3.getMetersY(), vel3.getVelocityX(), vel3.getVelocityY(), angle, 2.0, 0.0);
 			objects.push_back(fragment);
 			Position pt4 = this->getPosition();
 			pt4.addPixelsX(((6) * sin(this->getAngle() + 270)));
@@ -70,9 +71,9 @@ class StarLink : public Satellite
 			Velocity vel4;
 			vel4.setVelocityX(this->getVelocityX());
 			vel4.setVelocityY(this->getVelocityY());
-			vel4.setVelocityX(vel4.getVelocityX() + ((4000) * sin(this->getAngle() + 270)));
-			vel4.setVelocityY(vel4.getVelocityY() + ((4000) * cos(this->getAngle() + 270)));
-			Fragment* fragment2 = new Fragment(pt4.getMetersX(), pt4.getMetersY(), vel4.getVelocityX(), vel4.getVelocityY(), angle, 1.0, 0.0);
+			vel4.setVelocityX(vel4.getVelocityX() + ((7000) * sin(this->getAngle() + 270)));
+			vel4.setVelocityY(vel4.getVelocityY() + ((7000) * cos(this->getAngle() + 270)));
+			Fragment* fragment2 = new Fragment(pt4.getMetersX(), pt4.getMetersY(), vel4.getVelocityX(), vel4.getVelocityY(), angle, 2.0, 0.0);
 			objects.push_back(fragment2);
 			return objects;
 		}

@@ -13,8 +13,10 @@
 #include "uiDraw.h"
 #include "Object.h"
 #include "ObjectType.h"
+#include "Fragment.h"
 #include "Part.h"
 #include "Fragment.h"
+
 
 class TestStarLinkBody;
 class Position;
@@ -45,6 +47,7 @@ public:
 	void draw(ogstream& gout) { gout.drawStarlinkBody(this->getPosition(), this->getAngle()); }
 	ObjectType getType() const { return STARLINK_BODY; }
 	std::list<Object*> collide()
+
 	{
 		std::list<Object*> objects;
 		double angle = this->getAngle();
@@ -54,8 +57,10 @@ public:
 		Velocity vel3;
 		vel3.setVelocityX(this->getVelocityX());
 		vel3.setVelocityY(this->getVelocityY());
-		vel3.setVelocityX(vel3.getVelocityX() + ((4000) * sin(this->getAngle())));
-		vel3.setVelocityY(vel3.getVelocityY() + ((4000) * cos(this->getAngle())));
+
+		vel3.setVelocityX(vel3.getVelocityX() + ((7000) * sin(this->getAngle())));
+		vel3.setVelocityY(vel3.getVelocityY() + ((7000) * cos(this->getAngle())));
+
 		Fragment* fragment3 = new Fragment(pt3.getMetersX(), pt3.getMetersY(), vel3.getVelocityX(), vel3.getVelocityY(), angle, 2.0, 0.0);
 		objects.push_back(fragment3);
 		Position pt4 = this->getPosition();
@@ -64,8 +69,10 @@ public:
 		Velocity vel4;
 		vel4.setVelocityX(this->getVelocityX());
 		vel4.setVelocityY(this->getVelocityY());
-		vel4.setVelocityX(vel4.getVelocityX() + ((4000) * sin(this->getAngle())));
-		vel4.setVelocityY(vel4.getVelocityY() + ((4000) * cos(this->getAngle())));
+
+		vel4.setVelocityX(vel4.getVelocityX() + ((7000) * sin(this->getAngle())));
+		vel4.setVelocityY(vel4.getVelocityY() + ((7000) * cos(this->getAngle())));
+
 		Fragment* fragment2 = new Fragment(pt4.getMetersX(), pt4.getMetersY(), vel4.getVelocityX(), vel4.getVelocityY(), angle, 2.0, 0.0);
 		objects.push_back(fragment2);
 		Position pt = this->getPosition();
@@ -74,8 +81,10 @@ public:
 		Velocity vel;
 		vel.setVelocityX(this->getVelocityX());
 		vel.setVelocityY(this->getVelocityY());
-		vel.setVelocityX(vel.getVelocityX() + ((4000) * sin(this->getAngle())));
-		vel.setVelocityY(vel.getVelocityY() + ((4000) * cos(this->getAngle())));
+
+		vel.setVelocityX(vel.getVelocityX() + ((7000) * sin(this->getAngle())));
+		vel.setVelocityY(vel.getVelocityY() + ((7000) * cos(this->getAngle())));
+
 		Fragment* fragment = new Fragment(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), angle, 2.0, 0.0);
 		objects.push_back(fragment);
 		return objects;
