@@ -46,7 +46,7 @@ class Ship : public Object
 		// other functions
 		void draw(ogstream& gout) { gout.drawShip(this->getPosition(), this->getAngle(), this->getThrust()); }
 		void advance();
-		std::list<Object*> collide() const
+		std::list<Object*> collide()
 		{
 			std::list<Object*> objects;
 			Position pt = this->getPosition();

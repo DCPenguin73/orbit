@@ -14,6 +14,7 @@
 #include "Object.h"
 #include "ObjectType.h"
 #include "Part.h"
+#include "Fragment.h"
 
 class TestStarLinkBody;
 class Position;
@@ -43,7 +44,7 @@ public:
 	// other functions
 	void draw(ogstream& gout) { gout.drawStarlinkBody(this->getPosition(), this->getAngle()); }
 	ObjectType getType() const { return STARLINK_BODY; }
-	/*std::list<Object*> collide() const
+	std::list<Object*> collide()
 	{
 		std::list<Object*> objects;
 		double angle = this->getAngle();
@@ -78,5 +79,5 @@ public:
 		Fragment* fragment = new Fragment(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), angle, 1.0, 0.0);
 		objects.push_back(fragment);
 		return objects;
-	}*/
+	}
 };

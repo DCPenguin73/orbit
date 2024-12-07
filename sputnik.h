@@ -25,7 +25,7 @@ class Sputnik : public Satellite
 
 		// other functions
 		void draw(ogstream& gout) { gout.drawSputnik(this->getPosition(), this->getAngle()); }
-		std::list<Object*> collide() const
+		std::list<Object*> collide()
 		{
 			std::list<Object*> objects;
 			Position pt = this->getPosition();
