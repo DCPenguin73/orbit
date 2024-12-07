@@ -212,12 +212,27 @@ void Sim::advance()
 				{
 					count--;
 				}
+				std::list<Object*>  explodedParts2 = (*it2)->collide();
+				if (explodedParts2.size() > 0)
+					for (auto iPart2 = explodedParts2.begin(); iPart2 != explodedParts2.end(); iPart2++)
+					{
+						Object* part2 = *iPart2;
+						objects.push_back(part2);
+					}
 				it2 = objects.erase(it2);
+
 				if (!erasedOuter) {
 					if ((*it)->getType() == PROJECTILE)
 					{
 						count--;
 					}
+					std::list<Object*>  explodedParts1 = (*it)->collide();
+					if (explodedParts1.size() > 0)
+						for (auto iPart1 = explodedParts1.begin(); iPart1 != explodedParts1.end(); iPart1++)
+						{
+							Object* part1 = *iPart1;
+							objects.push_back(part1);
+						}
 					it = objects.erase(it);
 					erasedOuter = true;
 					break;
