@@ -30,7 +30,7 @@ class Hubble : public Satellite
 
 		// other functions
 		void draw(ogstream& gout) { gout.drawHubble(this->getPosition(), this->getAngle()); }
-		std::list<Object*> collide() const
+		/*std::list<Object*> collide() const
 		{
 			std::list<Object*> objects;
 			Position pt = this->getPosition();
@@ -75,7 +75,7 @@ class Hubble : public Satellite
 			HubbleComputer* hubbleComputer = new HubbleComputer(pt4.getMetersX(), pt4.getMetersY(), vel4.getVelocityX(), vel4.getVelocityY(), angle, 1.0, 0.0);
 			objects.push_back(hubbleComputer);
 			return objects;
-		}
+		}*/
 
 	private:
 		const ObjectType type = HUBBLE;

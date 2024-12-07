@@ -11,6 +11,7 @@
 #include <cmath>
 #include "Position.h"
 #include "uiDraw.h"
+#include "Fragment.h"
 #include "Object.h"
 #include "ObjectType.h"
 #include "Part.h"
@@ -43,7 +44,7 @@ public:
 	// other functions
 	void draw(ogstream& gout) { gout.drawStarlinkArray(this->getPosition(), this->getAngle()); }
 	ObjectType getType() const { return STARLINK_ARRAY; }
-	/*std::list<Object*> collide() const
+	std::list<Object*> collide() const
 	{
 		std::list<Object*> objects;
 		double angle = this->getAngle();
@@ -78,5 +79,5 @@ public:
 		Fragment* fragment = new Fragment(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), angle, 1.0, 0.0);
 		objects.push_back(fragment);
 		return objects;
-	}*/
+	}
 };

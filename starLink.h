@@ -30,7 +30,7 @@ class StarLink : public Satellite
 
 		// other functions
 		void draw(ogstream& gout) { gout.drawStarlink(this->getPosition(), this->getAngle()); }
-		/*std::list<Object*> collide() const 
+		std::list<Object*> collide() const 
 		{ 
 			std::list<Object*> objects;
 			Position pt = this->getPosition();
@@ -75,7 +75,7 @@ class StarLink : public Satellite
 			Fragment* fragment2 = new Fragment(pt4.getMetersX(), pt4.getMetersY(), vel4.getVelocityX(), vel4.getVelocityY(), angle, 1.0, 0.0);
 			objects.push_back(fragment2);
 			return objects;
-		}*/
+		}
 
 	private:
 		const ObjectType type = STARLINK;
