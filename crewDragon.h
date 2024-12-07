@@ -37,8 +37,8 @@ class CrewDragon : public Satellite
 
 			{
 				Position pt = this->getPosition();
-				pt.addPixelsX(((19) * sin(this->getAngle())));
-				pt.addPixelsY(((19) * cos(this->getAngle())));
+				pt.addPixelsX(((10) * sin(this->getAngle())));
+				pt.addPixelsY(((10) * cos(this->getAngle())));
 				Velocity vel;
 				vel.setVelocityX(this->getVelocityX());
 				vel.setVelocityY(this->getVelocityY());
@@ -51,8 +51,8 @@ class CrewDragon : public Satellite
 			
 			{
 				Position pt = this->getPosition();
-				pt.addPixelsX(((19) * sin(this->getAngle() + 144)));
-				pt.addPixelsY(((19) * cos(this->getAngle() + 144)));
+				pt.addPixelsX(((10) * sin(this->getAngle() + 144)));
+				pt.addPixelsY(((10) * cos(this->getAngle() + 144)));
 				Velocity vel;
 				vel.setVelocityX(this->getVelocityX());
 				vel.setVelocityY(this->getVelocityY());
@@ -66,8 +66,8 @@ class CrewDragon : public Satellite
 
 			{
 				Position pt = this->getPosition();
-				pt.addPixelsX(((19) * sin(this->getAngle() + 216)));
-				pt.addPixelsY(((19) * cos(this->getAngle() + 216)));
+				pt.addPixelsX(((10) * sin(this->getAngle() + 216)));
+				pt.addPixelsY(((10) * cos(this->getAngle() + 216)));
 				Velocity vel;
 				vel.setVelocityX(this->getVelocityX());
 				vel.setVelocityY(this->getVelocityY());
@@ -81,8 +81,8 @@ class CrewDragon : public Satellite
 
 			{
 				Position pt = this->getPosition();
-				pt.addPixelsX(((19) * sin(this->getAngle() + 72)));
-				pt.addPixelsY(((19) * cos(this->getAngle() + 72)));
+				pt.addPixelsX(((6) * sin(this->getAngle() + 72)));
+				pt.addPixelsY(((6) * cos(this->getAngle() + 72)));
 				Velocity vel;
 				vel.setVelocityX(this->getVelocityX());
 				vel.setVelocityY(this->getVelocityY());
@@ -95,8 +95,8 @@ class CrewDragon : public Satellite
 
 			{
 				Position pt = this->getPosition();
-				pt.addPixelsX(((19) * sin(this->getAngle() + 288)));
-				pt.addPixelsY(((19) * cos(this->getAngle() + 288)));
+				pt.addPixelsX(((6) * sin(this->getAngle() + 288)));
+				pt.addPixelsY(((6) * cos(this->getAngle() + 288)));
 				Velocity vel;
 				vel.setVelocityX(this->getVelocityX());
 				vel.setVelocityY(this->getVelocityY());
