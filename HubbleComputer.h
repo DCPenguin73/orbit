@@ -44,26 +44,26 @@ public:
 		std::list<Object*> objects;
 		{
 			Position pt = this->getPosition();
-			pt.addPixelsX(((19) * sin(this->getAngle())));
-			pt.addPixelsY(((19) * cos(this->getAngle())));
+			pt.addPixelsX(((4) * sin(this->getAngle())));
+			pt.addPixelsY(((4) * cos(this->getAngle())));
 			Velocity vel;
 			vel.setVelocityX(this->getVelocityX());
 			vel.setVelocityY(this->getVelocityY());
-			vel.setVelocityX(vel.getVelocityX() + ((4000) * sin(this->getAngle())));
-			vel.setVelocityY(vel.getVelocityY() + ((4000) * cos(this->getAngle())));
+			vel.setVelocityX(vel.getVelocityX() + ((7000) * sin(this->getAngle())));
+			vel.setVelocityY(vel.getVelocityY() + ((7000) * cos(this->getAngle())));
 
 			Fragment* fragment1 = new Fragment(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), this->getAngle(), 2.0, 0.0);
 			objects.push_back(fragment1);
 		}
 		{
 			Position pt = this->getPosition();
-			pt.addPixelsX(((19) * sin(this->getAngle() + 90)));
-			pt.addPixelsY(((19) * cos(this->getAngle() + 90)));
+			pt.addPixelsX(((4) * sin(this->getAngle() + 90)));
+			pt.addPixelsY(((4) * cos(this->getAngle() + 90)));
 			Velocity vel;
 			vel.setVelocityX(this->getVelocityX());
 			vel.setVelocityY(this->getVelocityY());
-			vel.setVelocityX(vel.getVelocityX() + ((4000) * sin(this->getAngle() + 90)));
-			vel.setVelocityY(vel.getVelocityY() + ((4000) * cos(this->getAngle() + 90)));
+			vel.setVelocityX(vel.getVelocityX() + ((7000) * sin(this->getAngle() + 90)));
+			vel.setVelocityY(vel.getVelocityY() + ((7000) * cos(this->getAngle() + 90)));
 			Fragment* fragment2 = new Fragment(pt.getMetersX(), pt.getMetersY(), vel.getVelocityX(), vel.getVelocityY(), (this->getAngle() + 30), 2.0, 0.0);
 			objects.push_back(fragment2);
 		}
